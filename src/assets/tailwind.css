@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.border-navbar {
+    @apply border-solid border border-secondary;
+}
+
+.btn {
+    @apply bg-secondary hover:bg-hover text-gray-800 font-bold;
+}
+
+.btn-transition {
+    @apply transition duration-300;
+}
+
+.box {
+    @apply px-12 xl:px-20;
+}
+
+.text-header {
+    @apply text-center font-bold mb-4 lg:text-xl;
+}
+
+.checkbox-mikat {
+    @apply w-4 h-4 text-hover bg-hover border-gray-300 rounded focus:ring-hover;
+}
