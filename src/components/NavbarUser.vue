@@ -1,6 +1,6 @@
 <template>
     <header
-        class="mb-16"
+        class="mb-16 lg:mb-[4.5rem]"
         style="@media screen and (mib-width: 10037px) {margin-bottom: 4.5rem}"
     >
         <nav
@@ -10,7 +10,7 @@
                 <!-- logo -->
                 <div class="flex items-center gap-x-2 cursor-pointer">
                     <img
-                        src="../assets/img/Logo.png"
+                        src="@/assets/img/Logo.png"
                         alt="Logo Web"
                         class="w-8 border-navbar rounded-lg"
                     />
@@ -34,10 +34,8 @@
                             class="hover:bg-white px-2 py-2 rounded-md cursor-pointer"
                             v-for="link in links"
                             :key="link.route"
-                            router
-                            :to="link.route"
                         >
-                            {{ link.text }}
+                            <a :href="link.route">{{ link.text }}</a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +46,7 @@
                         <div class="flex-shrink-0">
                             <img
                                 class="h-10 w-10 rounded-full border-navbar"
-                                src="../assets/img/Men-PP.png"
+                                src="@/assets/img/Men-PP.png"
                                 alt="Profile Picture"
                             />
                         </div>
@@ -90,7 +88,7 @@
                         v-for="link in links"
                         :key="link.route"
                     >
-                        {{ link.text }}
+                        <a :href="link.route">{{ link.text }}</a>
                     </li>
                 </ul>
                 <!-- userName -->
@@ -99,7 +97,7 @@
                         <div class="flex-shrink-0">
                             <img
                                 class="h-10 w-10 rounded-full border-navbar"
-                                src="../assets/img/Men-PP.png"
+                                src="@/assets/img/Men-PP.png"
                                 alt="Profile Picture"
                             />
                         </div>

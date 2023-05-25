@@ -25,7 +25,7 @@
             </div>
             <div class="hidden sm:block">
                 <img
-                    src="../assets/img/consultation.svg"
+                    src="@/assets/img/consultation.svg"
                     alt="Consultation"
                     class="w-64 xl:w-96"
                 />
@@ -34,8 +34,8 @@
 
         <!-- konsultasi -->
         <div class="box my-10 lg:w-9/12 lg:mx-auto">
-            <h1 class="text-header lg:text-xl">Mulai Konsultasi</h1>
-            <p class="text-justify lg:text-lg" style="text-align-last: center">
+            <h1 class="text-header">Mulai Konsultasi</h1>
+            <p class="text-caption" style="text-align-last: center">
                 Konsultasi akan dilakukan dengan kamu memilih minat dan bakat
                 yang kamu rasa cocok dengan dirimu. Jika kamu ragu tentang minat
                 dan bakat yang kamu miliki, kamu dapat melihat<br />
@@ -54,19 +54,20 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div
                             class="flex items-center mb-4"
-                            v-for="(talent, index) in talents"
+                            v-for="talent in talents"
                             :key="talent.text"
                         >
                             <input
-                                id="minat-checkbox-{index}"
+                                :id="talent.id"
+                                :name="talent.id"
                                 type="checkbox"
-                                value="{talent.text}"
+                                value=""
                                 class="checkbox-mikat"
                             />
                             <label
-                                for="minat-checkbox-{index}"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                >{{ index + 1 }} {{ talent.text }}</label
+                                :for="talent.id"
+                                class="ml-2 text-sm font-medium text-gray-900 lg:text-base"
+                                >{{ talent.text }}</label
                             >
                         </div>
                     </div>
@@ -83,14 +84,15 @@
                             :key="interest.text"
                         >
                             <input
-                                id="bakat-checkbox"
+                                :id="interest.id"
+                                :name="interest.id"
                                 type="checkbox"
                                 value=""
                                 class="checkbox-mikat"
                             />
                             <label
-                                for="bakat-checkbox"
-                                class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                :for="interest.id"
+                                class="ml-2 text-sm font-medium text-gray-900 lg:text-base"
                                 >{{ interest.text }}</label
                             >
                         </div>
@@ -113,36 +115,12 @@
 // @ is an alias to /src
 import NavbarUser from "@/components/NavbarUser.vue";
 import FooterUser from "@/components/FooterUser.vue";
+import { mapState } from "vuex";
 
 export default {
     components: { NavbarUser, FooterUser },
-    data() {
-        return {
-            interests: [
-                { text: "Kecerdasan Umum" },
-                { text: "Penalaran Verbal" },
-                { text: "Penalaran Non-Verbal" },
-                { text: "Penalaran Numerik" },
-                { text: "Pengetahuan Umum" },
-                { text: "Kemampuan Ruang Bidang" },
-                { text: "Kemampuan Dasar Administrasi" },
-                { text: "Daya Ingat" },
-            ],
-            talents: [
-                { text: "Outdoor" },
-                { text: "Mechanical" },
-                { text: "Computational" },
-                { text: "Scientific" },
-                { text: "Persuasive" },
-                { text: "Aesthetic" },
-                { text: "Literary" },
-                { text: "Musical" },
-                { text: "Social Service" },
-                { text: "Clerical" },
-                { text: "Practical" },
-                { text: "Medical " },
-            ],
-        };
+    computed: {
+        ...mapState(["interests", "talents"]),
     },
 };
 </script>

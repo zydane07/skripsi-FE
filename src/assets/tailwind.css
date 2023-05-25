@@ -22,6 +22,10 @@
     @apply text-center font-bold mb-4 lg:text-xl;
 }
 
+.text-caption {
+    @apply text-justify lg:text-lg;
+}
+
 .checkbox-mikat {
     @apply w-4 h-4 text-hover bg-hover border-gray-300 rounded focus:ring-hover;
 }
