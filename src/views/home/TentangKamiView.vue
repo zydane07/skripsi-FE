@@ -22,52 +22,36 @@
 
                 <form action="#">
                     <div class="mb-4">
-                        <label
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            for="nama"
-                            >Nama</label
-                        >
+                        <label class="label-text" for="nama">Nama</label>
                         <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="input-text focus:outline-none focus:shadow-outline"
                             id="nama"
                             type="text"
                             placeholder="Masukkan Namamu"
                         />
                     </div>
                     <div class="mb-4">
-                        <label
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            for="email"
-                            >Email</label
-                        >
+                        <label class="label-text" for="email">Email</label>
                         <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="input-text focus:outline-none focus:shadow-outline"
                             id="email"
                             type="text"
                             placeholder="Masukkan Emailmu"
                         />
                     </div>
                     <div class="mb-4">
-                        <label
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            for="subject"
-                            >subject</label
-                        >
+                        <label class="label-text" for="subject">subject</label>
                         <input
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="input-text focus:outline-none focus:shadow-outline"
                             id="subject"
                             type="text"
                             placeholder="Masukkan Subject Pesanmu"
                         />
                     </div>
                     <div class="mb-4">
-                        <label
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            for="pesan"
-                            >Pesan</label
-                        >
+                        <label class="label-text" for="pesan">Pesan</label>
                         <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            class="input-text focus:outline-none focus:shadow-outline"
                             name="pesan"
                             id="pesan"
                             rows="4"
@@ -76,7 +60,7 @@
                     </div>
                     <div class="pb-10 flex justify-center">
                         <button
-                            class="btn btn-transition py-2 px-4 rounded text-center w-full"
+                            class="btn btn-transition py-4 px-4 rounded text-center w-full"
                         >
                             Kirim Pesan
                         </button>

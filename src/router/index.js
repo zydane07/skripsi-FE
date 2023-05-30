@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@/views/HomeView.vue";
-import InformasiSistemView from "@/views/InformasiSistemView.vue";
-import DaftarMikatView from "@/views/DaftarMikatView.vue";
-import TentangKamiView from "@/views/TentangKamiView.vue";
-import HasilView from "@/views/HasilView.vue";
+import HomeView from "@/views/home/HomeView.vue";
+import InformasiSistemView from "@/views/home/InformasiSistemView.vue";
+import DaftarMikatView from "@/views/home/DaftarMikatView.vue";
+import TentangKamiView from "@/views/home/TentangKamiView.vue";
+import HasilView from "@/views/home/HasilView.vue";
 import UserLayout from "@/layouts/UserLayout.vue";
+import LoginLayout from "@/layouts/LoginLayout.vue";
+import LoginUser from "@/views/auth/LoginUser.vue";
+import RegisterUser from "@/views/auth/RegisterUser.vue";
 
 const routes = [
     {
@@ -33,9 +36,21 @@ const routes = [
     },
     {
         path: "/hasil-diagnosis",
-        name: "hasil-diagnosis",
+        name: "diagnosis-result",
         meta: { layout: UserLayout },
         component: HasilView,
+    },
+    {
+        path: "/login",
+        name: "login-user",
+        meta: { layout: LoginLayout },
+        component: LoginUser,
+    },
+    {
+        path: "/register",
+        name: "register-user",
+        meta: { layout: LoginLayout },
+        component: RegisterUser,
     },
 ];
 

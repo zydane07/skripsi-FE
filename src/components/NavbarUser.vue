@@ -70,7 +70,7 @@
                                     >Profile</a
                                 >
                                 <a
-                                    href="#about"
+                                    href="/login"
                                     class="text-black px-4 py-3 block hover:bg-secondary"
                                     >Logout</a
                                 >
@@ -118,7 +118,7 @@
                             >Profile</a
                         >
                         <a
-                            href="#"
+                            href="/login"
                             class="block m-0 rounded-md hover:bg-white p-2 text-base font-medium"
                             >Logout</a
                         >

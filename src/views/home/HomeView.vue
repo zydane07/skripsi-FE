@@ -102,7 +102,7 @@
             <!-- button submit -->
             <div class="text-center">
                 <button class="btn btn-transition px-6 py-4 rounded-lg">
-                    <router-link :to="{ name: 'hasil-diagnosis' }">
+                    <router-link :to="{ name: 'diagnosis-result' }">
                         Lihat Hasil Bidang Pekerjaan</router-link
                     >
                 </button>
