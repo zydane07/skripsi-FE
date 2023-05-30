@@ -1,11 +1,10 @@
 <template>
-    <navbar-user />
     <section class="system-information">
         <!-- how to use -->
         <div class="box bg-primary h">
             <h1 class="text-header pt-10 pb-4">Bagaimana Yourney digunakan?</h1>
             <div
-                class="lg:grid grid-cols-2 justify-center items-center pb-10 xl:grid-cols-4 gap-x-6"
+                class="lg:grid grid-cols-2 justify-items-center items-center pb-10 xl:grid-cols-4 gap-x-6"
             >
                 <div
                     v-for="(howToUse, index) in howToUses"
@@ -62,13 +61,9 @@
             </div>
         </div>
     </section>
-    <footer-user />
 </template>
 
 <script>
-import FooterUser from "@/components/FooterUser.vue";
-import NavbarUser from "@/components/NavbarUser.vue";
-
 export default {
     data() {
         return {
@@ -109,6 +104,5 @@ export default {
             ],
         };
     },
-    components: { NavbarUser, FooterUser },
 };
 </script>

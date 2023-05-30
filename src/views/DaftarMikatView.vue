@@ -1,5 +1,4 @@
 <template>
-    <navbar-user />
     <section class="list-talent-interest">
         <div class="box py-10 lg:w-9/12 lg:mx-auto">
             <h1 class="text-header">Daftar Minat</h1>
@@ -28,16 +27,12 @@
             </div>
         </div>
     </section>
-    <footer-user />
 </template>
 
 <script>
-import FooterUser from "@/components/FooterUser.vue";
-import NavbarUser from "@/components/NavbarUser.vue";
 import { mapState } from "vuex";
 
 export default {
-    components: { NavbarUser, FooterUser },
     computed: {
         ...mapState(["interests", "talents"]),
     },

@@ -1,5 +1,4 @@
 <template>
-    <navbar-user />
     <section class="home">
         <!-- jumbotron -->
         <div
@@ -110,17 +109,13 @@
             </div>
         </div>
     </section>
-    <footer-user />
 </template>
 
 <script>
 // @ is an alias to /src
-import NavbarUser from "@/components/NavbarUser.vue";
-import FooterUser from "@/components/FooterUser.vue";
 import { mapState } from "vuex";
 
 export default {
-    components: { NavbarUser, FooterUser },
     computed: {
         ...mapState(["interests", "talents"]),
     },
