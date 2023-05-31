@@ -1,7 +1,7 @@
 <template>
     <section class="system-information">
         <!-- how to use -->
-        <div class="box bg-primary h">
+        <div class="box bg-primary-100">
             <h1 class="text-header pt-10 pb-4">Bagaimana Yourney digunakan?</h1>
             <div
                 class="lg:grid grid-cols-2 justify-items-center items-center pb-10 xl:grid-cols-4 gap-x-6"

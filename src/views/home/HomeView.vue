@@ -2,7 +2,7 @@
     <section class="home">
         <!-- jumbotron -->
         <div
-            class="bg-primary box flex items-center justify-between gap-2 xl:gap-4 py-16 shadow-xl"
+            class="bg-primary-100 box flex items-center justify-between gap-2 xl:gap-4 py-16 shadow-xl"
         >
             <!-- CTA -->
             <div class="sm:w-1/2">
@@ -40,7 +40,7 @@
                 dan bakat yang kamu miliki, kamu dapat melihat<br />
                 <a
                     href="#"
-                    class="transition duration-300 hover:font-bold text-primary"
+                    class="transition duration-300 hover:font-bold text-primary-100"
                     >penjelasan minat dan bakat disini.</a
                 >
             </p>

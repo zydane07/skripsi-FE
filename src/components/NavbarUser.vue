@@ -4,7 +4,7 @@
         style="@media screen and (mib-width: 10037px) {margin-bottom: 4.5rem}"
     >
         <nav
-            class="box py-4 bg-primary border-b border-hover shadow fixed top-0 inset-x-0 z-10"
+            class="box py-4 bg-primary-100 border-b border-hover shadow fixed top-0 inset-x-0 z-10"
         >
             <div class="flex items-center justify-between px-2">
                 <!-- logo -->
@@ -15,16 +15,6 @@
                         class="w-8 border-navbar rounded-lg"
                     />
                     <h1 class="font-bold">Yourney</h1>
-                </div>
-
-                <!-- menu mobile -->
-                <div class="flex items-center lg:hidden cursor-pointer">
-                    <button class="mobile-menu-button outline-none">
-                        <i
-                            class="fa-solid fa-bars text-xl"
-                            x-show="!showMenu"
-                        ></i>
-                    </button>
                 </div>
 
                 <!-- menu web-->
@@ -66,33 +56,46 @@
                             >
                                 <a
                                     href="#home"
-                                    class="text-black px-4 py-3 block hover:bg-secondary"
+                                    class="text-black px-4 py-3 block hover:bg-secondary-300"
                                     >Profile</a
                                 >
                                 <a
                                     href="/login"
-                                    class="text-black px-4 py-3 block hover:bg-secondary"
+                                    class="text-black px-4 py-3 block hover:bg-secondary-300"
                                     >Logout</a
                                 >
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile menu button -->
+                <div @click="showMenu = !showMenu" class="flex md:hidden">
+                    <button
+                        type="button"
+                        class="outline-none text-gray-800 hover:text-hover focus:outline-none focus:text-gray-400"
+                    >
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
 
-            <!-- menu mobile aktif -->
-            <div class="mobile-menu hidden lg:hidden my-4">
-                <ul class="lg:hidden cursor-pointer">
-                    <li
-                        class="p-2 hover:bg-white rounded-md"
-                        v-for="link in links"
-                        :key="link.route"
-                    >
-                        <a :href="link.route">{{ link.text }}</a>
-                    </li>
-                </ul>
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <ul
+                :class="showMenu ? 'flex' : 'hidden'"
+                class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
+            >
+                <li
+                    class="p-2 hover:bg-white rounded-md lg:hidden"
+                    v-for="link in links"
+                    :key="link.route"
+                >
+                    <a :href="link.route">{{ link.text }}</a>
+                </li>
                 <!-- userName -->
-                <div class="border-t border-gray-700 mt-4 cursor-pointer">
+                <div
+                    class="border-t border-gray-700 mt-4 cursor-pointer lg:hidden"
+                >
                     <div class="flex items-center mt-3">
                         <div class="flex-shrink-0">
                             <img
@@ -124,21 +127,12 @@
                         >
                     </div>
                 </div>
-            </div>
+            </ul>
         </nav>
     </header>
 </template>
 
 <script>
-window.onload = () => {
-    const btn = document.querySelector("button.mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
-
-    btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
-    });
-};
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = (event) => {
     if (!event.target.matches(".dropbtn")) {
@@ -156,6 +150,7 @@ window.onclick = (event) => {
 export default {
     data() {
         return {
+            showMenu: false,
             links: [
                 {
                     text: "Homepage",

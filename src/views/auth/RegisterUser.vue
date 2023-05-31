@@ -80,6 +80,14 @@
                     </button>
                 </div>
             </form>
+            <p class="text-sm text-center">
+                Sudah Memiliki Akun?
+                <RouterLink
+                    :to="{ name: 'login-user' }"
+                    class="font-bold text-primary-100"
+                    >Login disini</RouterLink
+                >
+            </p>
         </div>
     </section>
 </template>

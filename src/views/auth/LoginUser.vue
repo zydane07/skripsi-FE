@@ -36,7 +36,7 @@
                 </div>
                 <div class="mb-2 flex justify-center">
                     <button
-                        class="btn btn-transition py-2 px-4 rounded text-center w-full"
+                        class="btn btn-transition py-4 px-4 rounded text-center w-full"
                     >
                         Login
                     </button>
@@ -46,7 +46,7 @@
                 Belum Memiliki Akun?
                 <RouterLink
                     :to="{ name: 'register-user' }"
-                    class="font-bold text-primary"
+                    class="font-bold text-primary-100"
                     >Daftar disini</RouterLink
                 >
             </p>

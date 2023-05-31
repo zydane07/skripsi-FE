@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .border-navbar {
-    @apply border-solid border border-secondary;
+    @apply border-solid border border-secondary-300;
 }
 
 .btn {
-    @apply bg-secondary hover:bg-hover text-gray-800 font-bold;
+    @apply bg-secondary-300 hover:bg-hover text-gray-800 font-bold;
 }
 
 .btn-transition {
@@ -36,4 +36,13 @@
 
 .input-text {
     @apply shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight;
+}
+
+/* admin */
+.admin-container {
+    @apply relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded;
+}
+
+.admin-box {
+    @apply rounded-t mb-0 px-4 py-3 border-0;
 }

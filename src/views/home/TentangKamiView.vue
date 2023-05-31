@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="box bg-primary">
+        <div class="box bg-primary-100">
             <div class="lg:w-3/4 xl:w-3/5 lg:mx-auto">
                 <h1 class="text-header pt-10">Hubungi Kami</h1>
                 <p class="text-caption mb-8">

@@ -1,31 +1,48 @@
 <template>
-    <div class="font-Montserrat">
+    <main class="font-Montserrat">
         <component :is="layout">
             <router-view />
         </component>
-        <!-- <NavbarUser />
-        <Router-view />
-        <FooterUser /> -->
-    </div>
+        <!-- <user-layout v-if="userLayout">
+            <router-view />
+        </user-layout>
+        <login-layout v-else-if="loginLayout">
+            <router-view />
+        </login-layout>
+        <admin-layout v-else-if="adminLayout">
+            <router-view />
+        </admin-layout> -->
+    </main>
 </template>
 
-<!-- <script>
-import FooterUser from "./components/FooterUser.vue";
-import NavbarUser from "./components/NavbarUser.vue";
-export default {
-    components: { NavbarUser, FooterUser },
-};
-</script> -->
 <script>
 import UserLayout from "@/layouts/UserLayout.vue";
-const userLayout = "user-layout";
+import LoginLayout from "./layouts/LoginLayout.vue";
+// import AdminLayout from "./layouts/AdminLayout.vue";
+// const userLayout = "user-layout";
+// const loginLayout = "login-layout";
+// const adminLayout = "admin-layout";
 
 export default {
-    components: UserLayout,
+    data() {
+        return {
+            btn: !null,
+        };
+    },
+    components: { UserLayout, LoginLayout },
     computed: {
         layout() {
+            return this.$route.meta.layout || "div";
+        },
+        userLayout() {
+            return this.$route.meta.layout;
+        },
+        loginLayout() {
             console.log(this.$route.meta.layout);
-            return this.$route.meta.layout || userLayout;
+            return this.$route.meta.layout;
+        },
+        adminLayout() {
+            return this.$route.meta.layout;
         },
     },
 };

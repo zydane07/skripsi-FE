@@ -1,15 +1,19 @@
 import { createRouter, createWebHistory } from "vue-router";
+import UserLayout from "@/layouts/UserLayout.vue";
+import LoginLayout from "@/layouts/LoginLayout.vue";
+import AdminLayout from "@/layouts/AdminLayout.vue";
 import HomeView from "@/views/home/HomeView.vue";
 import InformasiSistemView from "@/views/home/InformasiSistemView.vue";
 import DaftarMikatView from "@/views/home/DaftarMikatView.vue";
 import TentangKamiView from "@/views/home/TentangKamiView.vue";
 import HasilView from "@/views/home/HasilView.vue";
-import UserLayout from "@/layouts/UserLayout.vue";
-import LoginLayout from "@/layouts/LoginLayout.vue";
 import LoginUser from "@/views/auth/LoginUser.vue";
 import RegisterUser from "@/views/auth/RegisterUser.vue";
+import DashboardView from "@/views/admin/DashboardView.vue";
+import PekerjaanView from "@/views/admin/PekerjaanView.vue";
 
 const routes = [
+    // user
     {
         path: "/",
         name: "home",
@@ -52,6 +56,22 @@ const routes = [
         meta: { layout: LoginLayout },
         component: RegisterUser,
     },
+    // end user
+
+    // admin
+    {
+        path: "/admin/dashboard",
+        name: "dashboard-admin",
+        meta: { layout: AdminLayout },
+        component: DashboardView,
+    },
+    {
+        path: "/admin/data-bidang-pekerjaan",
+        name: "data-bidang-pekerjaan",
+        meta: { layout: AdminLayout },
+        component: PekerjaanView,
+    },
+    // end admin
 ];
 
 const router = createRouter({

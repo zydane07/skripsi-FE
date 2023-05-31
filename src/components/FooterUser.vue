@@ -1,6 +1,6 @@
 <template>
     <footer
-        class="text-center bg-primary py-8 text-black border-t border-secondary"
+        class="text-center bg-primary-100 py-8 text-black border-t border-secondary-300"
     >
         <h1 class="mb-8">
             © Muhammad Zydane 2023 | Yourney | muhammadzydane3@gmail.com
