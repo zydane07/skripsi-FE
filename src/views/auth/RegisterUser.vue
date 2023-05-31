@@ -32,16 +32,28 @@
                 </div>
                 <div class="mb-4 col-span-2">
                     <label class="label-text" for="password">Password</label>
-                    <input
-                        class="input-text focus:outline-none focus:shadow-outline"
-                        id="password"
-                        :type="passwordFieldType"
-                        v-model="password"
-                        placeholder="Masukkan Password"
-                    />
-                    <button type="password" @click="switchVisibility">
-                        show/hide
-                    </button>
+                    <div class="relative">
+                        <input
+                            class="input-text focus:outline-none focus:shadow-outline"
+                            id="password"
+                            :type="passwordFieldType"
+                            v-model="password"
+                            placeholder="Masukkan Password"
+                        />
+                        <div
+                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                        >
+                            <button type="password" @click="switchVisibility">
+                                <i
+                                    class="fa-solid"
+                                    :class="{
+                                        'fa-eye': text,
+                                        'fa-eye-slash': password,
+                                    }"
+                                ></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-4">
                     <label class="label-text" for="jenis-kelamin"

@@ -21,11 +21,26 @@
                 <div class="hidden lg:flex lg:items-center lg:justify-between">
                     <ul class="lg:flex hidden">
                         <li
-                            class="hover:bg-white px-2 py-2 rounded-md cursor-pointer"
+                            class="px-2 py-2 rounded-md cursor-pointer"
                             v-for="link in links"
                             :key="link.route"
                         >
-                            <a :href="link.route">{{ link.text }}</a>
+                            <RouterLink
+                                :to="link.route"
+                                v-slot="{ href, navigate, isActive }"
+                            >
+                                <a
+                                    :href="href"
+                                    @click="navigate"
+                                    class="block"
+                                    :class="[
+                                        isActive
+                                            ? 'text-primary-500 hover:text-primary-600'
+                                            : 'text-state-700 hover:text-state-500',
+                                    ]"
+                                    >{{ link.text }}</a
+                                >
+                            </RouterLink>
                         </li>
                     </ul>
                 </div>
@@ -59,18 +74,23 @@
                                     class="text-black px-4 py-3 block hover:bg-secondary-300"
                                     >Profile</a
                                 >
-                                <a
-                                    href="/login"
-                                    class="text-black px-4 py-3 block hover:bg-secondary-300"
-                                    >Logout</a
+                                <RouterLink
+                                    :to="{ name: 'login-user' }"
+                                    v-slot="{ href }"
                                 >
+                                    <a
+                                        :href="href"
+                                        class="text-black px-4 py-3 block hover:bg-secondary-300"
+                                        >Logout</a
+                                    >
+                                </RouterLink>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Mobile menu button -->
-                <div @click="showMenu = !showMenu" class="flex md:hidden">
+                <div @click="showMenu = !showMenu" class="flex lg:hidden">
                     <button
                         type="button"
                         class="outline-none text-gray-800 hover:text-hover focus:outline-none focus:text-gray-400"
@@ -90,7 +110,22 @@
                     v-for="link in links"
                     :key="link.route"
                 >
-                    <a :href="link.route">{{ link.text }}</a>
+                    <RouterLink
+                        :to="link.route"
+                        v-slot="{ href, navigate, isActive }"
+                    >
+                        <a
+                            :href="href"
+                            @click="navigate"
+                            class="block"
+                            :class="[
+                                isActive
+                                    ? 'text-primary-500 hover:text-primary-600'
+                                    : 'text-state-700 hover:text-state-500',
+                            ]"
+                            >{{ link.text }}</a
+                        >
+                    </RouterLink>
                 </li>
                 <!-- userName -->
                 <div
@@ -120,11 +155,16 @@
                             class="block m-0 rounded-md hover:bg-white p-2 text-base font-medium"
                             >Profile</a
                         >
-                        <a
-                            href="/login"
-                            class="block m-0 rounded-md hover:bg-white p-2 text-base font-medium"
-                            >Logout</a
+                        <RouterLink
+                            :to="{ name: 'login-user' }"
+                            v-slot="{ href }"
                         >
+                            <a
+                                :href="href"
+                                class="block m-0 rounded-md hover:bg-white p-2 text-base font-medium"
+                                >Logout</a
+                            >
+                        </RouterLink>
                     </div>
                 </div>
             </ul>
