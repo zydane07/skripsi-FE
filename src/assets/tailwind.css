@@ -38,6 +38,10 @@
     @apply shadow appearance-none border rounded w-full py-4 px-3 text-gray-700 leading-tight;
 }
 
+.result-container {
+    @apply bg-secondary-100 py-7 px-14 border border-slate-500 rounded-xl shadow-md;
+}
+
 /* admin */
 .admin-container {
     @apply relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded;

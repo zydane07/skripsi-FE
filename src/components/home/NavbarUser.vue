@@ -10,7 +10,7 @@
                 <!-- logo -->
                 <div class="flex items-center gap-x-2 cursor-pointer">
                     <img
-                        src="@/assets/img/Logo.png"
+                        :src="logo"
                         alt="Logo Web"
                         class="w-8 border-navbar rounded-lg"
                     />
@@ -51,7 +51,7 @@
                         <div class="flex-shrink-0">
                             <img
                                 class="h-10 w-10 rounded-full border-navbar"
-                                src="@/assets/img/Men-PP.png"
+                                :src="profilPict"
                                 alt="Profile Picture"
                             />
                         </div>
@@ -103,7 +103,7 @@
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
             <ul
                 :class="showMenu ? 'flex' : 'hidden'"
-                class="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0"
+                class="flex-col mt-8 space-y-4 lg:flex lg:space-y-0 lg:flex-row lg:items-center lg:space-x-10 lg:mt-0"
             >
                 <li
                     class="p-2 hover:bg-white rounded-md lg:hidden"
@@ -135,7 +135,7 @@
                         <div class="flex-shrink-0">
                             <img
                                 class="h-10 w-10 rounded-full border-navbar"
-                                src="@/assets/img/Men-PP.png"
+                                :src="profilPict"
                                 alt="Profile Picture"
                             />
                         </div>
@@ -174,22 +174,13 @@
 
 <script>
 // Close the dropdown if the user clicks outside of it
-window.onclick = (event) => {
-    if (!event.target.matches(".dropbtn")) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-                openDropdown.classList.remove("show");
-            }
-        }
-    }
-};
-
+import logo from "@/assets/img/Logo.png";
+import profilPict from "@/assets/img/Men-PP.png";
 export default {
     data() {
         return {
+            logo,
+            profilPict,
             showMenu: false,
             links: [
                 {
@@ -207,6 +198,19 @@ export default {
     },
     methods: {
         dropdownMenu() {
+            window.onclick = (event) => {
+                if (!event.target.matches(".dropbtn")) {
+                    var dropdowns =
+                        document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains("show")) {
+                            openDropdown.classList.remove("show");
+                        }
+                    }
+                }
+            };
             document.getElementById("myDropdown").classList.toggle("show");
         },
     },

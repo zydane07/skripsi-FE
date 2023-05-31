@@ -12,7 +12,7 @@
             >
                 <div class="flex items-center gap-x-2 cursor-pointer">
                     <img
-                        src="@/assets/img/Logo.png"
+                        :src="logo"
                         alt="Logo Web"
                         class="w-8 border-navbar rounded-lg"
                     />
@@ -47,7 +47,7 @@
                                     class="flex items-center gap-x-2 cursor-pointer"
                                 >
                                     <img
-                                        src="@/assets/img/Logo.png"
+                                        :src="logo"
                                         alt="Logo Web"
                                         class="w-8 border-navbar rounded-lg"
                                     />
@@ -109,9 +109,11 @@
 </template>
 
 <script>
+import logo from "@/assets/img/Logo.png";
 export default {
     data() {
         return {
+            logo,
             collapseShow: "hidden",
             menus: [
                 {

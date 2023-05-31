@@ -25,7 +25,7 @@
                 <div class="block w-full overflow-x-auto">
                     <!-- Projects table -->
                     <table
-                        class="table-auto items-center w-full bg-transparent border-collapse"
+                        class="items-center w-full bg-transparent border-collapse"
                     >
                         <thead>
                             <tr>

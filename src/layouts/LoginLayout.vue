@@ -6,7 +6,7 @@
             class="flex items-center gap-x-2 lg:absolute top-0 left-0 mt-10 ml-10 z-10 m-auto"
         >
             <img
-                src="@/assets/img/Logo.png"
+                :src="logo"
                 alt="Logo Web"
                 class="w-10 border-navbar rounded-lg"
             />
@@ -19,7 +19,13 @@
 
 <script>
 import AuthUser from "@/components/home/AuthUser.vue";
+import logo from "@/assets/img/Logo.png";
 export default {
+    data() {
+        return {
+            logo,
+        };
+    },
     components: { AuthUser },
     name: "login-layout",
 };

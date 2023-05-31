@@ -64,40 +64,41 @@
 </template>
 
 <script>
+import consultation from "@/assets/img/consultation.svg";
 export default {
     data() {
         return {
             howToUses: [
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     text: "Login untuk dapat deteksi bidang pekerjaan",
                 },
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     text: "Pilihlah minat dan bakat sesuai dengan dirimu",
                 },
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     text: "Lihat daftar minat dan bakat untuk memudahkanmu dalam menentukannya",
                 },
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     text: "Yourney akan memberikan hasil bidang pekerjaan berdasarkan minat dan bakatmu",
                 },
             ],
             adventages: [
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     title: "membantu memberikan rekomendasi bidang pekerjaan",
                     text: "Saat ini yourney hanya memiliki fitur untuk menentukan bidang pekerjaan berdasarkan minat dan bakat. Yourney akan terus berkembang searah dengan perkembangan zaman. Nantikan perkembangan Yourney ya!",
                 },
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     title: "Implementasi Metode Forward Chaining",
                     text: "Forward Chaining merupakan salah satu metode yang sering digunakan dalam sistem pakar. Dalam implementasinya, Knowledge Engineer menggunakan teknik tree untuk menggambarkan metode ini.",
                 },
                 {
-                    img: "/img/consultation.svg",
+                    img: consultation,
                     title: "Memberikan Saran sesuai bidang pekerjaan",
                     text: "Teman-teman harus ingat ya.. Yourney hanya memberikan saran untuk memudahkan teman-teman meraih bidang pekerjaan tersebut. Yourney tidak menjamin teman-teman meraih bidang pekerjaan yang diinginkan jika tidak ada doa dan usaha yang dilakukan.",
                 },

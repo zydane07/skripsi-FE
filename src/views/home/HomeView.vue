@@ -24,7 +24,7 @@
             </div>
             <div class="hidden sm:block">
                 <img
-                    src="@/assets/img/consultation.svg"
+                    :src="consultation"
                     alt="Consultation"
                     class="w-64 xl:w-96"
                 />
@@ -114,11 +114,16 @@
 <script>
 // @ is an alias to /src
 import { mapState } from "vuex";
+import consultation from "@/assets/img/consultation.svg";
 
 export default {
+    data() {
+        return {
+            consultation,
+        };
+    },
     computed: {
         ...mapState(["interests", "talents"]),
-        
     },
 };
 </script>
