@@ -116,7 +116,7 @@ export default {
             menus: [
                 {
                     text: "Dashboard",
-                    route: "/admin/dashboard",
+                    route: "/admin/",
                     icon: "fa-solid fa-house",
                 },
                 {
@@ -125,8 +125,13 @@ export default {
                     icon: "fa-solid fa-briefcase",
                 },
                 {
-                    text: "Data Minat dan Bakat",
-                    route: "/admin/data-minat-bakat",
+                    text: "Data Minat",
+                    route: "/admin/data-minat",
+                    icon: "fa-solid fa-hospital-user",
+                },
+                {
+                    text: "Data Bakat",
+                    route: "/admin/data-bakat",
                     icon: "fa-solid fa-hospital-user",
                 },
                 {
@@ -136,7 +141,7 @@ export default {
                 },
                 {
                     text: "Logout",
-                    route: "/admin/",
+                    route: "/admin/login",
                     icon: "fa-solid fa-right-from-bracket",
                 },
             ],

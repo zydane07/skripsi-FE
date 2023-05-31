@@ -11,6 +11,9 @@ import LoginUser from "@/views/auth/LoginUser.vue";
 import RegisterUser from "@/views/auth/RegisterUser.vue";
 import DashboardView from "@/views/admin/DashboardView.vue";
 import PekerjaanView from "@/views/admin/PekerjaanView.vue";
+import MinatView from "@/views/admin/MinatView.vue";
+import BakatView from "@/views/admin/BakatView.vue";
+import LoginAdminView from "@/views/admin/LoginAdminView.vue";
 
 const routes = [
     // user
@@ -60,7 +63,7 @@ const routes = [
 
     // admin
     {
-        path: "/admin/dashboard",
+        path: "/admin/",
         name: "dashboard-admin",
         meta: { layout: AdminLayout },
         component: DashboardView,
@@ -70,6 +73,23 @@ const routes = [
         name: "data-bidang-pekerjaan",
         meta: { layout: AdminLayout },
         component: PekerjaanView,
+    },
+    {
+        path: "/admin/data-minat",
+        name: "data-minat",
+        meta: { layout: AdminLayout },
+        component: MinatView,
+    },
+    {
+        path: "/admin/data-bakat",
+        name: "data-bakat",
+        meta: { layout: AdminLayout },
+        component: BakatView,
+    },
+    {
+        path: "/admin/login",
+        name: "login",
+        component: LoginAdminView,
     },
     // end admin
 ];

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import AuthUser from "@/components/AuthUser.vue";
+import AuthUser from "@/components/home/AuthUser.vue";
 export default {
     components: { AuthUser },
     name: "login-layout",

@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import NavbarUser from "@/components/NavbarUser.vue";
-import FooterUser from "@/components/FooterUser.vue";
+import NavbarUser from "@/components/home/NavbarUser.vue";
+import FooterUser from "@/components/home/FooterUser.vue";
 export default {
     components: { NavbarUser, FooterUser },
     name: "user-layout",

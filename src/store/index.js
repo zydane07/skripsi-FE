@@ -146,6 +146,104 @@ export default createStore({
                 example: ["Dokter", "Fisioterapi", "Apoteker", "bidan"],
             },
         ],
+        works: [
+            {
+                code: "P01",
+                name: "Pertanian, Kehutanan dan Perikanan",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P02",
+                name: "Perdagangan Besar Dan Eceran",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P03",
+                name: "Industri Pengolahan",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P04",
+                name: "Penyediaan Akomodasi dan Penyediaan Makan Minum",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P05",
+                name: "Konstruksi",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P06",
+                name: "Jasa Pendidikan",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P07",
+                name: "Transportasi dan Pergudangan",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P08",
+                name: "Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P09",
+                name: "Jasa Kesehatan dan Kegiatan Sosial",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P10",
+                name: "Jasa Perusahaan",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P11",
+                name: "Pertambangan dan Penggalian",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P12",
+                name: "Jasa Keuangan dan Asuransi",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P13",
+                name: "Informasi dan Komunikasi",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P14",
+                name: "Pengadaan Air, Pengelolaan Sampah dan Daur Ulang, Pembuangan dan Pembersihan Limbah dan Sampah",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P15",
+                name: "Real Estat",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+            {
+                code: "P16",
+                name: "Artistik/kesenian",
+                suggestion:
+                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+            },
+        ],
     },
     getters: {},
     mutations: {},

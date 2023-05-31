@@ -42,7 +42,7 @@
     </div>
 </template>
 <script>
-import CardStats from "@/components/CardStats.vue";
+import CardStats from "@/components/admin/CardStats.vue";
 
 export default {
     components: {

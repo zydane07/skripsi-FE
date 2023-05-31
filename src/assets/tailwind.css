@@ -46,3 +46,15 @@
 .admin-box {
     @apply rounded-t mb-0 px-4 py-3 border-0;
 }
+
+.thead-style-1 {
+    @apply px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 border-b-0 font-semibold text-left text-black;
+}
+
+.thead-style-2 {
+    @apply bg-primary-100  border-primary-300;
+}
+
+.tbody-style {
+    @apply border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  p-4;
+}
