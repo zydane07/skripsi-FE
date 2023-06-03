@@ -37,7 +37,7 @@
                                 </th>
                                 <th
                                     class="thead-style-1 thead-style-2"
-                                    style="width: 13%"
+                                    style="width: 10%"
                                 >
                                     Id Rule
                                 </th>
@@ -46,6 +46,12 @@
                                     style="width: 15%"
                                 >
                                     Nama Bidang
+                                </th>
+                                <th
+                                    class="thead-style-1 thead-style-2"
+                                    style="width: 15%"
+                                >
+                                    Nama Minat Bakat
                                 </th>
 
                                 <th
@@ -58,7 +64,7 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(work, index) in works"
+                                v-for="(item, index) in combinedData"
                                 :key="index"
                                 :class="{
                                     'bg-blue-200': index % 2 === 0,
@@ -66,18 +72,28 @@
                                 }"
                             >
                                 <th class="tbody-style">{{ index + 1 }}</th>
-                                <td class="tbody-style">{{ work.code }}</td>
-                                <td class="tbody-style">{{ work.name }}</td>
+                                <td class="tbody-style">
+                                    {{ item.work.code }}
+                                </td>
+                                <td class="tbody-style">
+                                    {{ item.work.name }}
+                                </td>
+                                <td class="tbody-style">
+                                    {{ item.talentInterest.name }}
+                                </td>
                                 <td class="tbody-style">
                                     <div class="flex justify-start gap-4">
                                         <a
                                             href="#"
-                                            class="hover:text-primary-500"
+                                            class="text-white bg-teal-400 px-2 py-2 rounded-md hover:bg-teal-600"
                                         >
                                             <i class="fa-solid fa-pen"></i>
                                             Edit
                                         </a>
-                                        <a href="#" class="hover:text-red-500">
+                                        <a
+                                            href="#"
+                                            class="text-white bg-red-400 px-2 py-2 rounded-md hover:bg-red-600"
+                                        >
                                             <i class="fa-solid fa-trash"></i>
                                             Hapus
                                         </a>
@@ -98,7 +114,17 @@ import { mapState } from "vuex";
 export default {
     name: "data-rules",
     computed: {
-        ...mapState(["works"]),
+        ...mapState(["works", "talentInterests"]),
+        combinedData() {
+            return this.works.map((work, index) => {
+                return {
+                    work,
+                    talentInterest: this.talentInterests[index],
+                };
+            });
+        },
     },
+
+    methods: {},
 };
 </script>

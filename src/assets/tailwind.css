@@ -62,3 +62,26 @@
 .tbody-style {
     @apply border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  p-4;
 }
+
+.label-admin-input {
+    @apply block uppercase text-slate-600 text-xs font-bold mb-2;
+}
+
+.input-admin-type {
+    @apply border-0 px-3 py-3 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150;
+}
+
+.btn-submit {
+    @apply mb-4 px-3 py-3  bg-primary-100 text-white active:bg-hover text-sm font-bold uppercase rounded shadow hover:shadow-lg outline-none focus:outline-none w-full ease-linear transition-all duration-150;
+}
+
+/* modals */
+.modal-outer-enter-active,
+.modal-outer-leave-active {
+    transition: all 0.2s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.modal-outer-enter-from,
+.modal-outer-leave-to {
+    opacity: 0;
+}

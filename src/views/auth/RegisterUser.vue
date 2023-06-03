@@ -1,6 +1,6 @@
 <template>
     <section class="register-user flex items-center" style="height: 100vh">
-        <div class="mx-11 sm:mx-auto">
+        <div class="w-9/12 mx-11 sm:mx-auto">
             <div class="mb-8">
                 <h1 class="font-bold text-lg text-center">
                     Selamat Datang di Yourney!
@@ -11,7 +11,10 @@
             </div>
 
             <!-- form -->
-            <form action="#" class="lg:grid grid-cols-2 gap-x-4">
+            <form
+                @submit.prevent="register"
+                class="lg:grid grid-cols-2 gap-x-4"
+            >
                 <div class="mb-4">
                     <label class="label-text" for="email">Email</label>
                     <input
@@ -19,7 +22,16 @@
                         id="email"
                         type="email"
                         placeholder="Masukkan Emailmu"
+                        v-model="email"
                     />
+                    <span v-if="!email" class="error-sign text-red-500"
+                        >Email belum diisi</span
+                    >
+                    <span
+                        v-else-if="!isEmailValid(email)"
+                        class="error-sign text-red-500"
+                        >Tolong Masukkan Email yang Valid</span
+                    >
                 </div>
                 <div class="mb-4">
                     <label class="label-text" for="nama">Nama</label>
@@ -28,10 +40,20 @@
                         id="nama"
                         type="nama"
                         placeholder="Masukkan Namamu"
+                        v-model="name"
                     />
+                    <span v-if="!name" class="error-sign text-red-500"
+                        >Nama belum diisi</span
+                    >
+                    <span
+                        v-else-if="!isNameValid()"
+                        class="error-sign text-red-500"
+                        >Nama hanya boleh huruf alfabet[a-z]</span
+                    >
                 </div>
                 <div class="mb-4 col-span-2">
                     <label class="label-text" for="password">Password</label>
+
                     <div class="relative">
                         <input
                             class="input-text focus:outline-none focus:shadow-outline"
@@ -40,10 +62,18 @@
                             v-model="password"
                             placeholder="Masukkan Password"
                         />
+                        <span v-if="!password" class="error-sign text-red-500"
+                            >password tidak boleh kosong</span
+                        >
+                        <span
+                            v-else-if="!isPasswordValid(password)"
+                            class="error-sign text-red-500"
+                            >Password harus terdiri dari minimal 5 kata</span
+                        >
                         <div
                             class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
                         >
-                            <button type="password" @click="switchVisibility">
+                            <button type="button" @click="switchVisibility">
                                 <i
                                     class="fa-solid"
                                     :class="{
@@ -60,28 +90,36 @@
                         >Jenis Kelamin</label
                     >
                     <select
+                        v-model="gender"
                         name="jenis-kelamin"
                         id="jenis-kelamin"
                         class="leading-tight shadow text-sm rounded border text-gray-700 h-14 w-full px-3 bg-white hover:border-gray-400 focus:outline-none focus:shadow-outline"
                     >
-                        <option selected>Pilih Jenis Kelamin</option>
+                        <option disabled value="">Pilih Jenis Kelamin</option>
                         <option value="LK">Laki-Laki</option>
                         <option value="PR">Perempuan</option>
                     </select>
+                    <span v-if="!gender" class="error-sign text-red-500"
+                        >Jenis Kelamin tidak boleh kosong</span
+                    >
                 </div>
                 <div class="mb-4">
                     <label class="label-text" for="pekerjaan">Pekerjaan</label>
                     <select
+                        v-model="job"
                         name="pekerjaan"
                         id="pekerjaan"
                         class="leading-tight shadow text-sm rounded border text-gray-700 h-14 w-full px-3 bg-white hover:border-gray-400 focus:outline-none focus:shadow-outline"
                     >
-                        <option selected>Pilih Pekerjaanmu</option>
+                        <option disabled value="">Pilih Pekerjaanmu</option>
                         <option value="pelajar">Pelajar</option>
                         <option value="mahasiswa">Mahasiswa</option>
                         <option value="jobseekers">Jobseekers</option>
                         <option value="lainnya">Lainnya</option>
                     </select>
+                    <span v-if="!job" class="error-sign text-red-500"
+                        >Pekerjaan tidak boleh kosong</span
+                    >
                 </div>
 
                 <div class="mb-2 flex justify-center col-span-2">
@@ -109,7 +147,11 @@ export default {
     name: "register-user",
     data() {
         return {
+            email: "",
+            name: "",
             password: "",
+            gender: "",
+            job: "",
             passwordFieldType: "password",
         };
     },
@@ -117,6 +159,54 @@ export default {
         switchVisibility() {
             this.passwordFieldType =
                 this.passwordFieldType === "password" ? "text" : "password";
+        },
+        register() {
+            if (
+                !this.email ||
+                !this.name ||
+                !this.password ||
+                !this.gender ||
+                !this.job
+            ) {
+                alert("Semua Field Harus diisi");
+                return;
+            }
+
+            // validasi email
+            if (!this.isEmailValid(this.email)) {
+                alert("Please enter a valid email");
+                return;
+            }
+
+            if (!this.isPasswordValid(this.password)) {
+                alert("Password Harus minimal 5 kata");
+                return;
+            }
+
+            // name harus huruf
+            if (!this.isNameValid(this.name)) {
+                alert("Please enter a valid name");
+                return;
+            }
+            alert("Registrasi berhasil");
+
+            // Navigate to the login page
+            this.$router.push({ name: "login-user" });
+        },
+        isEmailValid(email) {
+            // Email validation regex pattern
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return pattern.test(email);
+        },
+
+        isNameValid() {
+            // Name validation regex pattern
+            const regex = /^[a-zA-Z\s]+$/;
+            return regex.test(this.name);
+        },
+
+        isPasswordValid(password) {
+            return password.length >= 5;
         },
     },
 };
