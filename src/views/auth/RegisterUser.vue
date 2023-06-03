@@ -106,6 +106,7 @@
 
 <script>
 export default {
+    name: "register-user",
     data() {
         return {
             password: "",

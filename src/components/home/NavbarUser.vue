@@ -1,6 +1,6 @@
 <template>
     <header
-        class="mb-16 lg:mb-[4.5rem]"
+        class="mb-16 lg:mb-[4.5rem] navbar-user"
         style="@media screen and (min-width: 1037px) {margin-bottom: 4.5rem}"
     >
         <nav
@@ -70,7 +70,7 @@
                                 class="dropdown-content hidden absolute bg-white min-w-full overflow-auto shadow-md z-10 rounded-lg"
                             >
                                 <a
-                                    href="#home"
+                                    href=""
                                     class="text-black px-4 py-3 block hover:bg-secondary-300"
                                     >Profile</a
                                 >
@@ -177,6 +177,7 @@
 import logo from "@/assets/img/Logo.png";
 import profilPict from "@/assets/img/Men-PP.png";
 export default {
+    name: "navbar-user",
     data() {
         return {
             logo,

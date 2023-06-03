@@ -1,13 +1,13 @@
 <template>
     <footer
-        class="text-center bg-primary-100 py-8 text-black border-t border-secondary-300"
+        class="footer-user text-center bg-primary-100 py-6 text-black border-t border-secondary-300"
     >
-        <h1 class="mb-8">
+        <h1 class="mb-3 font-bold">
             © Muhammad Zydane 2023 | Yourney | muhammadzydane3@gmail.com
         </h1>
 
         <div
-            class="box mb-3 mx-6 sm:flex justify-evenly lg:justify-center lg:gap-x-8 sm:mx-0"
+            class="box mx-6 sm:flex justify-evenly lg:justify-center lg:gap-x-8 sm:mx-0"
         >
             <div v-for="sosialMedia in sosialMedias" :key="sosialMedia.text">
                 <div
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+    name: "footer-user",
     data() {
         return {
             sosialMedias: [

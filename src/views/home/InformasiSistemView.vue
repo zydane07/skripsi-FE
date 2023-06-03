@@ -66,6 +66,7 @@
 <script>
 import consultation from "@/assets/img/consultation.svg";
 export default {
+    name: "system-information",
     data() {
         return {
             howToUses: [

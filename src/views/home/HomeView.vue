@@ -1,5 +1,5 @@
 <template>
-    <section class="home">
+    <section class="home-user">
         <!-- jumbotron -->
         <div
             class="jumbotron bg-primary-100 box flex items-center justify-between gap-2 xl:gap-4 shadow-xl"
@@ -41,6 +41,7 @@ import { mapState } from "vuex";
 import consultation from "@/assets/img/consultation.svg";
 
 export default {
+    name: "home-user",
     data() {
         return {
             consultation,
@@ -54,12 +55,12 @@ export default {
 
 <style scoped>
 .jumbotron {
-    height: 70vh;
+    height: 76.8vh;
 }
 
 @media only screen and (min-width: 1037px) {
-    section {
-        height: 69vh;
+    .jumbotron {
+        height: 75.8vh;
     }
 }
 </style>

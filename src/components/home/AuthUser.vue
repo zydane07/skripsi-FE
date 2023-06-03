@@ -1,5 +1,5 @@
 <template>
-    <div class="hidden lg:block" style="height: 100vh">
+    <div class="auth-user hidden lg:block" style="height: 100vh">
         <img
             :src="imgLogin"
             alt="Login Image"
@@ -12,6 +12,7 @@
 import imgLogin from "@/assets/img/img-login.jpg";
 
 export default {
+    name: "auth-user",
     data() {
         return {
             imgLogin,

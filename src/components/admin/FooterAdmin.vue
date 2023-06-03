@@ -1,5 +1,5 @@
 <template>
-    <footer class="block py-4">
+    <footer class="footer-admin block py-4">
         <div class="container mx-auto px-4">
             <hr class="mb-4 border-b-1 border-blueGray-200" />
             <div
@@ -34,6 +34,7 @@
 
 <script>
 export default {
+    name: "footer-admin",
     data() {
         return {
             date: new Date().getFullYear(),

@@ -12,12 +12,13 @@ import DashboardView from "@/views/admin/DashboardView.vue";
 import PekerjaanView from "@/views/admin/PekerjaanView.vue";
 import MinatView from "@/views/admin/MinatView.vue";
 import BakatView from "@/views/admin/BakatView.vue";
+import RulesView from "@/views/admin/RulesView.vue";
 import LoginAdminView from "@/views/admin/LoginAdminView.vue";
 const routes = [
     // user
     {
         path: "/",
-        name: "home",
+        name: "home-user",
         meta: { layout: UserLayout },
         component: HomeView,
     },
@@ -78,6 +79,18 @@ const routes = [
         name: "data-bakat",
         meta: { layout: AdminLayout },
         component: BakatView,
+    },
+    {
+        path: "/admin/data-bakat",
+        name: "data-bakat",
+        meta: { layout: AdminLayout },
+        component: BakatView,
+    },
+    {
+        path: "/admin/data-rules",
+        name: "data-rules",
+        meta: { layout: AdminLayout },
+        component: RulesView,
     },
     {
         path: "/admin/login",

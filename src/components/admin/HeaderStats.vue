@@ -1,5 +1,5 @@
 <template>
-    <div class="relative bg-primary-400 md:pt-32 pb-32 pt-12">
+    <div class="header-admin relative bg-primary-400 md:pt-32 pb-32 pt-12">
         <div class="px-4 md:px-10 mx-auto w-full">
             <div>
                 <!-- Card stats -->
@@ -45,6 +45,7 @@
 import CardStats from "@/components/admin/CardStats.vue";
 
 export default {
+    name: "header-admin",
     components: {
         CardStats,
     },

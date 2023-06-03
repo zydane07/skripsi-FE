@@ -73,6 +73,7 @@
 
 <script>
 export default {
+    name: "about-us",
     data() {
         return {
             users: [

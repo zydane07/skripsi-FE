@@ -101,6 +101,7 @@
 import { mapState } from "vuex";
 
 export default {
+    name: "data-bidang-pekerjaan ",
     computed: {
         ...mapState(["works"]),
     },

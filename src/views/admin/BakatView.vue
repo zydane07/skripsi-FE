@@ -81,6 +81,7 @@
 import { mapState } from "vuex";
 
 export default {
+    name: "data-bakat",
     computed: {
         ...mapState(["talentInterests"]),
     },

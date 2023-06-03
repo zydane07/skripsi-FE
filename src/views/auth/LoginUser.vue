@@ -62,6 +62,7 @@
 
 <script>
 export default {
+    name: "login-user",
     data() {
         return {
             password: "",
