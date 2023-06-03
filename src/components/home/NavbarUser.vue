@@ -1,7 +1,7 @@
 <template>
     <header
         class="mb-16 lg:mb-[4.5rem]"
-        style="@media screen and (mib-width: 10037px) {margin-bottom: 4.5rem}"
+        style="@media screen and (min-width: 1037px) {margin-bottom: 4.5rem}"
     >
         <nav
             class="box py-4 bg-primary-100 border-b border-hover shadow fixed top-0 inset-x-0 z-10"
@@ -35,7 +35,7 @@
                                     class="block"
                                     :class="[
                                         isActive
-                                            ? 'text-primary-500 hover:text-primary-600'
+                                            ? 'text-primary-500 hover:text-primary-600 font-bold'
                                             : 'text-state-700 hover:text-state-500',
                                     ]"
                                     >{{ link.text }}</a
@@ -120,7 +120,7 @@
                             class="block"
                             :class="[
                                 isActive
-                                    ? 'text-primary-500 hover:text-primary-600'
+                                    ? 'text-primary-500 hover:text-primary-600 font-bold'
                                     : 'text-state-700 hover:text-state-500',
                             ]"
                             >{{ link.text }}</a
@@ -189,8 +189,8 @@ export default {
                 },
                 { text: "Informasi Sistem", route: "/informasi-sistem" },
                 {
-                    text: "Daftar Minat dan Bakat",
-                    route: "/daftar-minat-bakat",
+                    text: "Mulai Konsultasi",
+                    route: "/konsultasi",
                 },
                 { text: "Tentang Kami", route: "/tentang-kami" },
             ],

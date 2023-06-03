@@ -6,7 +6,6 @@ import HomeView from "@/views/home/HomeView.vue";
 import InformasiSistemView from "@/views/home/InformasiSistemView.vue";
 import DaftarMikatView from "@/views/home/DaftarMikatView.vue";
 import TentangKamiView from "@/views/home/TentangKamiView.vue";
-import HasilView from "@/views/home/HasilView.vue";
 import LoginUser from "@/views/auth/LoginUser.vue";
 import RegisterUser from "@/views/auth/RegisterUser.vue";
 import DashboardView from "@/views/admin/DashboardView.vue";
@@ -14,7 +13,6 @@ import PekerjaanView from "@/views/admin/PekerjaanView.vue";
 import MinatView from "@/views/admin/MinatView.vue";
 import BakatView from "@/views/admin/BakatView.vue";
 import LoginAdminView from "@/views/admin/LoginAdminView.vue";
-
 const routes = [
     // user
     {
@@ -30,7 +28,7 @@ const routes = [
         component: InformasiSistemView,
     },
     {
-        path: "/daftar-minat-bakat",
+        path: "/konsultasi",
         name: "list-talent-interest",
         meta: { layout: UserLayout },
         component: DaftarMikatView,
@@ -41,12 +39,7 @@ const routes = [
         meta: { layout: UserLayout },
         component: TentangKamiView,
     },
-    {
-        path: "/hasil-diagnosis",
-        name: "diagnosis-result",
-        meta: { layout: UserLayout },
-        component: HasilView,
-    },
+
     {
         path: "/login",
         name: "login-user",

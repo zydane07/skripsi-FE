@@ -45,7 +45,9 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(interest, index) in interests"
+                                v-for="(
+                                    talentInterest, index
+                                ) in talentInterests.slice(12, 20)"
                                 :key="index"
                                 :class="{
                                     'bg-blue-200': index % 2 === 0,
@@ -53,13 +55,17 @@
                                 }"
                             >
                                 <th class="tbody-style">{{ index + 1 }}</th>
-                                <td class="tbody-style">{{ interest.id }}</td>
-                                <td class="tbody-style">{{ interest.text }}</td>
-                                <td class="tbody-style text-justify">
-                                    {{ interest.description }}
+                                <td class="tbody-style">
+                                    {{ talentInterest.code }}
                                 </td>
                                 <td class="tbody-style">
-                                    {{ interest.example }}
+                                    {{ talentInterest.name }}
+                                </td>
+                                <td class="tbody-style text-justify">
+                                    {{ talentInterest.description }}
+                                </td>
+                                <td class="tbody-style">
+                                    {{ talentInterest.example }}
                                 </td>
                             </tr>
                         </tbody>
@@ -76,7 +82,7 @@ import { mapState } from "vuex";
 
 export default {
     computed: {
-        ...mapState(["interests"]),
+        ...mapState(["talentInterests"]),
     },
 };
 </script>

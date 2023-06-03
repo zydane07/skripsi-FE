@@ -51,7 +51,9 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(talent, index) in talents"
+                                v-for="(
+                                    talentInterest, index
+                                ) in talentInterests.slice(0, 12)"
                                 :key="index"
                                 :class="{
                                     'bg-blue-200': index % 2 === 0,
@@ -59,13 +61,21 @@
                                 }"
                             >
                                 <th class="tbody-style">{{ index + 1 }}</th>
-                                <td class="tbody-style">{{ talent.id }}</td>
-                                <td class="tbody-style">{{ talent.text }}</td>
-                                <td class="tbody-style text-justify">
-                                    {{ talent.description }}
+                                <td class="tbody-style">
+                                    {{ talentInterest.code }}
                                 </td>
                                 <td class="tbody-style">
-                                    {{ talent.example }}
+                                    {{ talentInterest.name }}
+                                </td>
+                                <td class="tbody-style text-justify">
+                                    {{ talentInterest.description }}
+                                </td>
+                                <td class="tbody-style">
+                                    {{
+                                        Array.isArray(talentInterest.example)
+                                            ? talentInterest.example.join(", ")
+                                            : ""
+                                    }}
                                 </td>
                             </tr>
                         </tbody>
@@ -82,7 +92,8 @@ import { mapState } from "vuex";
 
 export default {
     computed: {
-        ...mapState(["talents"]),
+        ...mapState(["talentInterests"]),
     },
+    methods: {},
 };
 </script>

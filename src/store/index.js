@@ -2,148 +2,146 @@ import { createStore } from "vuex";
 
 export default createStore({
     state: {
-        interests: [
+        talentInterests: [
             {
-                //
-                id: "B01",
-                text: "Kecerdasan Umum",
-                description:
-                    "Bakat yang berhubungan dengan kemampaun Inteligensi secara menyeluruh yang dimiliki individu untuk menyelesaikan beberapa tugas yang bervariasi",
-            },
-            {
-                //
-                id: "B02",
-                text: "Penalaran Verbal",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat memahami informasi yang disampaikan dalam bentuk Bahasa, baik lisan maupun tulisan",
-            },
-            {
-                //
-                id: "B03",
-                text: "Penalaran Non-Verbal",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat memahami symbol, bentuk dan bangun ruang",
-            },
-            {
-                //
-                id: "B04",
-                text: "Penalaran Numerik",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat meamhami dan mengolah berbagai data berupa angka melalui proses berhitung",
-            },
-            {
-                //
-                id: "B05",
-                text: "Pengetahuan Umum",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat menyerap informasi dari lingkungan dan memanfaatkannya dalam pemecahan masalah keseharian",
-            },
-            {
-                //
-                id: "B06",
-                text: "Kemampuan Ruang Bidang",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan memahami dan mengolah bentuk tiga dimensi",
-            },
-            {
-                //
-                id: "B07",
-                text: "Kemampuan Dasar Administrasi",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan untuk mengelompokkan data berdasarkan kriteria tertentu",
-            },
-            {
-                //
-                id: "B08",
-                text: "Daya Ingat",
-                description:
-                    "Bakat yang berhubungan dengan kemampuan untuk menyimpan informasi jangka pendek dan jangka panjang",
-            },
-        ],
-        talents: [
-            {
-                id: "M01",
-                text: "Outdoor",
+                code: "M01",
+                name: "Outdoor",
                 description:
                     "Minat yang berhubungan dengan pekerjaan di lapangan/luar kantor",
                 example: ["Petani", "Pemain Bola", "Nelayan"],
             },
             {
-                id: "M02",
-                text: "Mechanical",
+                code: "M02",
+                name: "Mechanical",
                 description:
                     "Minat yang berhubungan dengan pekerjaan yang berhubungan dengan mekanik/Teknik",
                 example: ["Insinyur", "Montir", "Teknisi"],
             },
             {
-                id: "M03",
-                text: "Computational",
+                code: "M03",
+                name: "Computational",
                 description:
                     "Minat yang berhubungan dengan pekerjaan yang membutuhkan kemampuan berhitung",
                 example: ["Ahli statistik", "Auditor", "Akuntan"],
             },
             {
-                id: "M04",
-                text: "Scientific",
+                code: "M04",
+                name: "Scientific",
                 description:
                     "minat yang berhubungan dengan pekerjaan dilaboratorium atau meneliti",
                 example: ["Ilmuwan", "Peneliti"],
             },
             {
-                id: "M05",
-                text: "Persuasive",
+                code: "M05",
+                name: "Persuasive",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang menggunakan kemampuan persuasi",
                 example: ["Konselor", "Sales", "Penyiar"],
             },
             {
-                id: "M06",
-                text: "Aesthetic ",
+                code: "M06",
+                name: "Aesthetic ",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang berkaitan dengan seni dan kreasi",
                 example: ["Arsitek", "Pekerja seni", "Desainer"],
             },
             {
-                id: "M07",
-                text: "Literary",
+                code: "M07",
+                name: "Literary",
                 description:
                     "merupakan minat yang berhubungan dengan pekerjaan yang berkaitan dengan membaca atau menulis",
                 example: ["Wartawan", "Penulis", "Penyair"],
             },
             {
-                id: "M08",
-                text: "Musical",
+                code: "M08",
+                name: "Musical",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang berkaitan dengan seni musik",
                 example: ["Pianis", "Arranger lagu", "Gitaris"],
             },
             {
-                id: "M09",
-                text: "Social Service",
+                code: "M09",
+                name: "Social Service",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang berkaitan dengan pelayanan sosial",
                 example: ["Dosen", "Penyuluh lapangan"],
             },
             {
-                id: "M10",
-                text: "Clerical",
+                code: "M10",
+                name: "Clerical",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang memerlukan ketelitian dan ketekunan",
                 example: ["Sekretaris", "Manager bank"],
             },
             {
-                id: "M11",
-                text: "Practical",
+                code: "M11",
+                name: "Practical",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang praktis dan memerlukan keterampilan",
                 example: ["Ahli bangunan", "Karya petukangan"],
             },
             {
-                id: "M12",
-                text: "Medical ",
+                code: "M12",
+                name: "Medical ",
                 description:
                     "minat yang berhubungan dengan pekerjaan yang berhubungan dengan pelayanan medis",
                 example: ["Dokter", "Fisioterapi", "Apoteker", "bidan"],
+            },
+            {
+                //
+                code: "B01",
+                name: "Kecerdasan Umum",
+                description:
+                    "Bakat yang berhubungan dengan kemampaun Inteligensi secara menyeluruh yang dimiliki individu untuk menyelesaikan beberapa tugas yang bervariasi",
+            },
+            {
+                //
+                code: "B02",
+                name: "Penalaran Verbal",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat memahami informasi yang disampaikan dalam bentuk Bahasa, baik lisan maupun tulisan",
+            },
+            {
+                //
+                code: "B03",
+                name: "Penalaran Non-Verbal",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat memahami symbol, bentuk dan bangun ruang",
+            },
+            {
+                //
+                code: "B04",
+                name: "Penalaran Numerik",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat meamhami dan mengolah berbagai data berupa angka melalui proses berhitung",
+            },
+            {
+                //
+                code: "B05",
+                name: "Pengetahuan Umum",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan individu untuk dapat menyerap informasi dari lingkungan dan memanfaatkannya dalam pemecahan masalah keseharian",
+            },
+            {
+                //
+                code: "B06",
+                name: "Kemampuan Ruang Bidang",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan memahami dan mengolah bentuk tiga dimensi",
+            },
+            {
+                //
+                code: "B07",
+                name: "Kemampuan Dasar Administrasi",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan untuk mengelompokkan data berdasarkan kriteria tertentu",
+            },
+            {
+                //
+                code: "B08",
+                name: "Daya Ingat",
+                description:
+                    "Bakat yang berhubungan dengan kemampuan untuk menyimpan informasi jangka pendek dan jangka panjang",
             },
         ],
         works: [
@@ -151,98 +149,294 @@ export default createStore({
                 code: "P01",
                 name: "Pertanian, Kehutanan dan Perikanan",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P02",
                 name: "Perdagangan Besar Dan Eceran",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P03",
                 name: "Industri Pengolahan",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P04",
                 name: "Penyediaan Akomodasi dan Penyediaan Makan Minum",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P05",
                 name: "Konstruksi",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P06",
                 name: "Jasa Pendidikan",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P07",
                 name: "Transportasi dan Pergudangan",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P08",
                 name: "Administrasi Pemerintahan, Pertahanan dan Jaminan Sosial Wajib",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P09",
                 name: "Jasa Kesehatan dan Kegiatan Sosial",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P10",
                 name: "Jasa Perusahaan",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P11",
                 name: "Pertambangan dan Penggalian",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P12",
                 name: "Jasa Keuangan dan Asuransi",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P13",
                 name: "Informasi dan Komunikasi",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P14",
                 name: "Pengadaan Air, Pengelolaan Sampah dan Daur Ulang, Pembuangan dan Pembersihan Limbah dan Sampah",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P15",
                 name: "Real Estat",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
             {
                 code: "P16",
                 name: "Artistik/kesenian",
                 suggestion:
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae illo ipsum illum harum totam cupiditate debitis provident obcaecati ducimus, nobis sequi quae aut nemo repellat. Quasi excepturi tenetur accusantium ducimus.",
+                    "Saran ini diberikan dengan mempertimbangkan minat, dan bakat yang dimiliki oleh pengguna, sifatnya tidak mutlak. Masih perlu dukungan oleh usaha, doa, kegigihan, serta pencarian informasi terkait dengan bidang yang ingin dituju. Dalam meraih bidang pekerjaan tersebut pengguna harus berusaha dengan maksimal seperti mengikuti pelatihan-pelatihan baik softskill maupun hardskill, memperbanyak informasi, memperluas koneksi, memperbanyak pengalaman dalam bidang yang dituju supaya bisa menjadi profesional.",
             },
+        ],
+        rules1: [
+            //
+            "M02",
+            "M04",
+            "M07",
+            "M11",
+            "M12",
+            "B02",
+            "B04",
+        ],
+        rules2: [
+            //
+            "M02",
+            "M04",
+            "M05",
+            "M07",
+            "M12",
+            "B01",
+            "B02",
+            "B07",
+            "B08",
+        ],
+        rules3: [
+            //
+            "M01",
+            "M02",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B06",
+        ],
+        rules4: [
+            //
+            "M02",
+            "M04",
+            "M07",
+            "M09",
+            "M12",
+            "B01",
+            "B03",
+            "B07",
+        ],
+        rules5: [
+            //
+            "M01",
+            "M02",
+            "M04",
+            "M06",
+            "M11",
+            "M12",
+            "B02",
+            "B05",
+            "B06",
+        ],
+        rules6: [
+            //
+            "M02",
+            "M06",
+            "M07",
+            "M08",
+            "M09",
+            "M10",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B08",
+        ],
+        rules7: [
+            //
+            "M02",
+            "M04",
+            "M07",
+            "M09",
+            "M12",
+            "B01",
+            "B02",
+            "B05",
+            "B07",
+        ],
+        rules8: [
+            //
+            "M05",
+            "M09",
+            "M12",
+            "B01",
+            "B02",
+            "B07",
+            "B08",
+        ],
+        rules9: [
+            //
+            "M03",
+            "M04",
+            "M07",
+            "M09",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B04",
+        ],
+        rules10: [
+            //
+            "M02",
+            "M04",
+            "M05",
+            "M06",
+            "M07",
+            "M09",
+            "M12",
+            "B07",
+            "B08",
+        ],
+        rules11: [
+            //
+            "M01",
+            "M02",
+            "M04",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B05",
+            "B06",
+        ],
+        rules12: [
+            //
+            "M04",
+            "M05",
+            "M07",
+            "M09",
+            "M12",
+            "B01",
+            "B02",
+            "B07",
+            "B08",
+        ],
+        rules13: [
+            //
+            "M02",
+            "M04",
+            "M06",
+            "M07",
+            "M08",
+            "M09",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+        ],
+        rules14: [
+            //
+            "M01",
+            "M02",
+            "M04",
+            "M06",
+            "M07",
+            "M09",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B03",
+            "B05",
+            "B06",
+        ],
+        rules15: [
+            //
+            "M02",
+            "M04",
+            "M06",
+            "M07",
+            "M09",
+            "M11",
+            "M12",
+            "B01",
+            "B02",
+            "B04",
+            "B05",
+        ],
+        rules16: [
+            //
+            "M02",
+            "M04",
+            "M06",
+            "M07",
+            "M08",
+            "M09",
+            "M10",
+            "M12",
+            "B01",
+            "B04",
+            "B08",
         ],
     },
     getters: {},
