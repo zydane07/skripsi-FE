@@ -62,14 +62,7 @@
                             v-model="password"
                             placeholder="Masukkan Password"
                         />
-                        <span v-if="!password" class="error-sign text-red-500"
-                            >password tidak boleh kosong</span
-                        >
-                        <span
-                            v-else-if="!isPasswordValid(password)"
-                            class="error-sign text-red-500"
-                            >Password harus terdiri dari minimal 5 kata</span
-                        >
+
                         <div
                             class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
                         >
@@ -84,6 +77,14 @@
                             </button>
                         </div>
                     </div>
+                    <span v-if="!password" class="error-sign text-red-500"
+                        >password tidak boleh kosong</span
+                    >
+                    <span
+                        v-else-if="!isPasswordValid(password)"
+                        class="error-sign text-red-500"
+                        >Password harus terdiri dari minimal 5 kata</span
+                    >
                 </div>
                 <div class="mb-4">
                     <label class="label-text" for="jenis-kelamin"
@@ -153,12 +154,16 @@ export default {
             gender: "",
             job: "",
             passwordFieldType: "password",
+            text: false, // Added 'text' variable
+            passwords: false, // Added 'passwords' variable
         };
     },
     methods: {
         switchVisibility() {
             this.passwordFieldType =
                 this.passwordFieldType === "password" ? "text" : "password";
+            this.text = !this.text; // Toggle 'text' value
+            this.passwords = !this.passwords; // Toggle 'passwords' value
         },
         register() {
             if (

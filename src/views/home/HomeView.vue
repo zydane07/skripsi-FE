@@ -2,11 +2,11 @@
     <section class="home-user">
         <!-- jumbotron -->
         <div
-            class="jumbotron bg-primary-100 box flex items-center justify-between gap-2 xl:gap-4 shadow-xl"
+            class="jumbotron bg-white box flex flex-col-reverse lg:flex-row items-center justify-evenly gap-4 shadow-xl lg:mx-auto"
         >
             <!-- CTA -->
-            <div class="sm:w-1/2">
-                <div class="text-justify">
+            <div class="text-center lg:text-justify lg:w-1/2 2xl:w-5/12">
+                <div class="">
                     <h1 class="font-bold text-lg lg:text-xl">
                         Konsultasikan Minat dan Bakatmu Untuk Pekerjaan yang
                         sesuai bidang
@@ -24,11 +24,11 @@
                     >
                 </button>
             </div>
-            <div class="hidden sm:block">
+            <div class="">
                 <img
                     :src="consultation"
                     alt="Consultation"
-                    class="w-64 xl:w-96"
+                    class="w-80 xl:w-96"
                 />
             </div>
         </div>

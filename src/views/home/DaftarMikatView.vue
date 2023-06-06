@@ -12,7 +12,7 @@
             <div class="">
                 <!-- pilihan minat -->
                 <div class="my-5">
-                    <h2 class="font-bold mb-3 lg:text-lg">
+                    <h2 class="font-bold mb-3 lg:text-lg text-center">
                         Pilih minat dan bakat yang sesuai
                     </h2>
                     <div class="sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -26,16 +26,16 @@
                                 :name="talentInterest.code"
                                 type="checkbox"
                                 :value="talentInterest.code"
-                                class="checkbox-mikat"
+                                class="checkbox-mikat cursor-pointer"
                                 v-model="checkedTalentInterest"
                                 :disabled="buttonClicked"
                             />
                             <label
                                 :for="talentInterest.code"
-                                class="ml-2 text-sm font-medium text-gray-900 lg:text-base"
-                                >{{ talentInterest.code }} .{{
-                                    talentInterest.name
-                                }}</label
+                                class="ml-2 text-sm font-medium text-gray-900 lg:text-base cursor-pointer"
+                            >
+                                {{ talentInterest.code }}
+                                {{ talentInterest.name }}</label
                             >
                         </div>
                     </div>
@@ -105,17 +105,70 @@
                 </div>
             </div>
 
-            <!-- Hasil diagnosa -->
-            <div class="box lg:w-9/12 lg:mx-auto py-10">
+            <!-- Hasil diagnosa  1 bidang-->
+            <!-- <div class="box lg:w-9/12 lg:mx-auto py-10">
                 <div class="result-container" v-if="showDiagnosis">
                     <h1 class="text-left mb-4 lg:text-xl">
-                        Hasil Diagnosa:
+                        Hasil Diagnosa Bidang Pekerjaan:
                         <span class="font-bold text-teal-500">{{
                             showDiagnosis.name
                         }}</span>
                     </h1>
                     <p class="text-justify text-sm">
                         {{ showDiagnosis.suggestion }}
+                    </p>
+                </div>
+            </div> -->
+
+            <!-- hasil diagnosa 3 bidang -->
+            <div class="box lg:w-9/12 lg:mx-auto py-10">
+                <div
+                    class="result-container"
+                    v-if="getMostSuitableWorks.length > 0"
+                >
+                    <h1 class="text-center mb-4 lg:text-2xl font-bold">
+                        Hasil Diagnosa Bidang Pekerjaan:
+                    </h1>
+                    <ul>
+                        <li
+                            v-for="(work, index) in getMostSuitableWorks"
+                            :key="work.code"
+                            class="text-justify"
+                        >
+                            <span class="font-bold text-teal-500">
+                                {{ index + 1 }}. {{ work.name }} <br />
+                            </span>
+                            <span class="text-justify text-sm" vf>
+                                <span class="font-bold">
+                                    Kompetensi yang dibutuhkan: <br />
+                                </span>
+                                <span
+                                    v-for="(
+                                        competence, index
+                                    ) in work.competence"
+                                    :key="index"
+                                    class="mb-2"
+                                >
+                                    {{ index + 1 + ". " + competence }}
+                                    <br />
+                                </span>
+
+                                <br />
+                            </span>
+                            <span class="text-justify text-sm">
+                                <span class="font-bold">
+                                    saran untuk kamu:
+                                </span>
+                                {{ work.suggestion }} <br />
+                                <br />
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div v-else class="result-container">
+                    <p class="text-center text-red-500 font-bold">
+                        Minat dan Bakat yang kamu masukkan tidak bisa di
+                        analisis. Silahkan lakukan diagnosa ulang.
                     </p>
                 </div>
             </div>
@@ -133,7 +186,7 @@
                     :key="talentInterest.code"
                 >
                     <h1 class="mb-1 font-bold lg:text-lg">
-                        {{ index + 1 }}. {{ talentInterest.code }}
+                        {{ index + 1 }}. {{ talentInterest.name }}
                     </h1>
                     <p class="ml-4 text-justify mb-4 lg:text-lg">
                         {{ talentInterest.description }}
@@ -233,9 +286,7 @@ export default {
 
             return merged;
         },
-        showDiagnosis() {
-            // ISI RULES
-            // MINIMAL MASUKIN 7 MAKSIMAL 13
+        getMostSuitableWorks() {
             const {
                 checkedTalentInterest,
                 rules1,
@@ -255,26 +306,6 @@ export default {
                 rules15,
                 rules16,
             } = this;
-
-            // rules lengt
-            // console.log(
-            //     rules1.length,
-            //     rules2.length,
-            //     rules3.length,
-            //     rules4.length,
-            //     rules5.length,
-            //     rules6.length,
-            //     rules7.length,
-            //     rules8.length,
-            //     rules9.length,
-            //     rules10.length,
-            //     rules11.length,
-            //     rules12.length,
-            //     rules13.length,
-            //     rules14.length,
-            //     rules15.length,
-            //     rules16.length
-            // );
 
             // Calculate the number of matches between each rules array and checkedTalentInterest
             const matchCounts = [
@@ -343,29 +374,169 @@ export default {
                     count: this.countMatches(checkedTalentInterest, rules16),
                 },
             ];
-            // Sort the matchCounts array in descending order based on the count
+
             matchCounts.sort((a, b) => b.count - a.count);
+            console.log(matchCounts.sort((a, b) => b.count - a.count));
 
-            // Get the most suitable workcode
-            const mostSuitableWorkId = matchCounts[0].code;
-
-            // Get 3  suitable work ID
-            // const mostSuitableWorkIds = matchCounts
-            //     .slice(0, 3)
-            //     .map((item) => item.id);
-
-            // Find the one corresponding work object
-            const mostSuitableWork = this.works.find(
-                (work) => work.code === mostSuitableWorkId
+            const maxMatchCount = Math.max(
+                ...matchCounts.map((match) => match.count)
             );
 
+            // const mostSuitableWorkId = matchCounts[0].code;
+            // Get 3  suitable work ID
+            const mostSuitableWorkIds = matchCounts
+                .slice(0, 3)
+                .map((item) => item.code);
+
+            console.log("mostSuitableWorkIds: ", mostSuitableWorkIds);
             //Find two corresponding work object
-            // const mostSuitableWork = this.works.filter((work) =>
-            //     mostSuitableWorkIds.includes(work.id)
-            // );
+            const mostSuitableWork = this.works.filter((work) =>
+                mostSuitableWorkIds.includes(work.code)
+            );
+
+            if (maxMatchCount === 5) {
+                return []; // Return an empty array if max count is 5
+            }
 
             return mostSuitableWork;
         },
+        // menampilkan 1 bidang kerja
+        // showDiagnosis() {
+        //     // ISI RULES
+        //     // MINIMAL MASUKIN 7 MAKSIMAL 13
+        //     const {
+        //         checkedTalentInterest,
+        //         rules1,
+        //         rules2,
+        //         rules3,
+        //         rules4,
+        //         rules5,
+        //         rules6,
+        //         rules7,
+        //         rules8,
+        //         rules9,
+        //         rules10,
+        //         rules11,
+        //         rules12,
+        //         rules13,
+        //         rules14,
+        //         rules15,
+        //         rules16,
+        //     } = this;
+
+        //     // rules lengt
+        //     // console.log(
+        //     //     rules1.length,
+        //     //     rules2.length,
+        //     //     rules3.length,
+        //     //     rules4.length,
+        //     //     rules5.length,
+        //     //     rules6.length,
+        //     //     rules7.length,
+        //     //     rules8.length,
+        //     //     rules9.length,
+        //     //     rules10.length,
+        //     //     rules11.length,
+        //     //     rules12.length,
+        //     //     rules13.length,
+        //     //     rules14.length,
+        //     //     rules15.length,
+        //     //     rules16.length
+        //     // );
+
+        //     // Calculate the number of matches between each rules array and checkedTalentInterest
+        //     const matchCounts = [
+        //         {
+        //             code: "P01",
+        //             count: this.countMatches(checkedTalentInterest, rules1),
+        //         },
+        //         {
+        //             code: "P02",
+        //             count: this.countMatches(checkedTalentInterest, rules2),
+        //         },
+        //         {
+        //             code: "P03",
+        //             count: this.countMatches(checkedTalentInterest, rules3),
+        //         },
+        //         {
+        //             code: "P04",
+        //             count: this.countMatches(checkedTalentInterest, rules4),
+        //         },
+        //         {
+        //             code: "P05",
+        //             count: this.countMatches(checkedTalentInterest, rules5),
+        //         },
+        //         {
+        //             code: "P06",
+        //             count: this.countMatches(checkedTalentInterest, rules6),
+        //         },
+        //         {
+        //             code: "P07",
+        //             count: this.countMatches(checkedTalentInterest, rules7),
+        //         },
+        //         {
+        //             code: "P08",
+        //             count: this.countMatches(checkedTalentInterest, rules8),
+        //         },
+        //         {
+        //             code: "P09",
+        //             count: this.countMatches(checkedTalentInterest, rules9),
+        //         },
+        //         {
+        //             code: "P10",
+        //             count: this.countMatches(checkedTalentInterest, rules10),
+        //         },
+        //         {
+        //             code: "P11",
+        //             count: this.countMatches(checkedTalentInterest, rules11),
+        //         },
+        //         {
+        //             code: "P12",
+        //             count: this.countMatches(checkedTalentInterest, rules12),
+        //         },
+        //         {
+        //             code: "P13",
+        //             count: this.countMatches(checkedTalentInterest, rules13),
+        //         },
+        //         {
+        //             code: "P14",
+        //             count: this.countMatches(checkedTalentInterest, rules14),
+        //         },
+        //         {
+        //             code: "P15",
+        //             count: this.countMatches(checkedTalentInterest, rules15),
+        //         },
+        //         {
+        //             code: "P16",
+        //             count: this.countMatches(checkedTalentInterest, rules16),
+        //         },
+        //     ];
+        //     // Sort the matchCounts array in descending order based on the count
+        //     matchCounts.sort((a, b) => b.count - a.count);
+
+        //     // log minat yang sesuai
+        //     // console.log(matchCounts.sort((a, b) => b.count - a.count));
+        //     // Get the most suitable workcode
+        //     const mostSuitableWorkId = matchCounts[0].code;
+        //     // console.log(mostSuitableWorkId);
+
+        //     // Get 3  suitable work ID
+        //     // const mostSuitableWorkIds = matchCounts
+        //     //     .slice(0, 3)
+        //     //     .map((item) => item.id);
+
+        //     // Find the one corresponding work object
+        //     const mostSuitableWork = this.works.find(
+        //         (work) => work.code === mostSuitableWorkId
+        //     );
+
+        //     //Find two corresponding work object
+        //     // const mostSuitableWork = this.works.filter((work) =>
+        //     //     mostSuitableWorkIds.includes(work.id)
+        //     // );
+
+        //     return mostSuitableWork;
+        // },
     },
     methods: {
         getTalentInterestName(code) {
@@ -378,7 +549,8 @@ export default {
         },
         // Method to count the number of matches between two arrays
         countMatches(array1, array2) {
-            return array1.filter((value) => array2.includes(value)).length;
+            // return array1.filter((value) => array2.includes(value)).length;
+            return array1.filter((item) => array2.includes(item)).length;
         },
 
         // modal

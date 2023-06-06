@@ -30,10 +30,11 @@
                 melakukan konsultasi dengan pakar yang memiliki pengalaman dalam
                 bidang membantu menentukan bidang pekerjaan berdasarkan minat
                 dan bakat. Jadi hasil dari diagnosa sistem akan sama dengan
-                diagnosa dari seorang pakar. Jika kamu ingin melakukan
-                konsultasi secara langsung, hal itu tentu juga akan lebih
-                memantapkan dirimu untuk mencapai bidang pekerjaan sesuai minat
-                dan bakatmu!
+                diagnosa dari seorang pakar. Sistem akan memberikan 3 diagnosa
+                bidang pekerjaan sesuai dengan minat dan bakat yang kamu
+                masukkan. Jika kamu ingin melakukan konsultasi secara langsung,
+                hal itu tentu juga akan lebih memantapkan dirimu untuk mencapai
+                bidang pekerjaan sesuai minat dan bakatmu!
             </p>
         </div>
 

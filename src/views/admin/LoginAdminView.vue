@@ -21,7 +21,7 @@
                                     >Silahkan Masukkan Email dan Password</small
                                 >
                             </div>
-                            <form>
+                            <form @submit.prevent="login">
                                 <div class="relative w-full mb-3">
                                     <label
                                         class="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -33,7 +33,18 @@
                                         type="email"
                                         class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                         placeholder="Email"
+                                        v-model="email"
                                     />
+                                    <span
+                                        v-if="!email"
+                                        class="error-sign text-red-500"
+                                        >Email belum diisi</span
+                                    >
+                                    <span
+                                        v-else-if="!isEmailValid(email)"
+                                        class="error-sign text-red-500"
+                                        >Tolong Masukkan Email yang Valid</span
+                                    >
                                 </div>
 
                                 <div class="relative w-full mb-3">
@@ -43,24 +54,51 @@
                                     >
                                         Password
                                     </label>
-                                    <input
-                                        type="password"
-                                        class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                                        placeholder="Password"
-                                    />
+                                    <div class="relative">
+                                        <input
+                                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                            placeholder="Password"
+                                            :type="passwordFieldType"
+                                            v-model="password"
+                                        />
+
+                                        <div
+                                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                                        >
+                                            <button
+                                                type="button"
+                                                @click="switchVisibility"
+                                            >
+                                                <i
+                                                    class="fa-solid"
+                                                    :class="{
+                                                        'fa-eye': text,
+                                                        'fa-eye-slash':
+                                                            password,
+                                                    }"
+                                                ></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <span
+                                        v-if="!password"
+                                        class="error-sign text-red-500"
+                                        >password tidak boleh kosong</span
+                                    >
+                                    <span
+                                        v-else-if="!isPasswordValid(password)"
+                                        class="error-sign text-red-500"
+                                        >Password harus terdiri dari minimal 5
+                                        kata</span
+                                    >
                                 </div>
 
                                 <div class="text-center mt-6">
-                                    <RouterLink
-                                        :to="{ name: 'dashboard-admin' }"
+                                    <button
+                                        class="bg-black text-white active:bg-black text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                                     >
-                                        <button
-                                            class="bg-black text-white active:bg-black text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                                            type="button"
-                                        >
-                                            Sign In
-                                        </button>
-                                    </RouterLink>
+                                        Login
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -79,8 +117,50 @@ export default {
     data() {
         return {
             registerBg2,
+            email: "",
+            password: "",
+            passwordFieldType: "password",
+            text: false, // Added 'text' variable
+            passwords: false, // Added 'passwords' variable
+
             date: new Date().getFullYear(),
         };
+    },
+    methods: {
+        switchVisibility() {
+            this.passwordFieldType =
+                this.passwordFieldType === "password" ? "text" : "password";
+            this.text = !this.text; // Toggle 'text' value
+            this.passwords = !this.passwords; // Toggle 'passwords' value
+        },
+        login() {
+            if (!this.email || !this.password) {
+                alert("Semua Field Harus diisi");
+                return;
+            }
+
+            // validasi email
+            if (!this.isEmailValid(this.email)) {
+                alert("Please enter a valid email");
+                return;
+            }
+            if (!this.isPasswordValid(this.password)) {
+                alert("Password Salah");
+                return;
+            }
+
+            alert("Login berhasil");
+            this.$router.push({ name: "dashboard-admin" });
+        },
+
+        isEmailValid(email) {
+            // Email validation regex pattern
+            const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return pattern.test(email);
+        },
+        isPasswordValid(password) {
+            return password.length >= 5;
+        },
     },
 };
 </script>

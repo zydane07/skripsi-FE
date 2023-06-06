@@ -19,38 +19,38 @@ const routes = [
     {
         path: "/",
         name: "home-user",
-        meta: { layout: UserLayout },
+        meta: { layout: UserLayout, title: "Landing Page" },
         component: HomeView,
     },
     {
         path: "/informasi-sistem",
         name: "system-information",
-        meta: { layout: UserLayout },
+        meta: { layout: UserLayout, title: "Informasi Sistem" },
         component: InformasiSistemView,
     },
     {
         path: "/konsultasi",
         name: "list-talent-interest",
-        meta: { layout: UserLayout },
+        meta: { layout: UserLayout, title: "Konsultasi" },
         component: DaftarMikatView,
     },
     {
         path: "/tentang-kami",
         name: "about-us",
-        meta: { layout: UserLayout },
+        meta: { layout: UserLayout, title: "Tentang Kami" },
         component: TentangKamiView,
     },
 
     {
         path: "/login",
         name: "login-user",
-        meta: { layout: LoginLayout },
+        meta: { layout: LoginLayout, title: "Login User" },
         component: LoginUser,
     },
     {
         path: "/register",
         name: "register-user",
-        meta: { layout: LoginLayout },
+        meta: { layout: LoginLayout, title: "Register User" },
         component: RegisterUser,
     },
     // end user
@@ -59,42 +59,37 @@ const routes = [
     {
         path: "/admin/",
         name: "dashboard-admin",
-        meta: { layout: AdminLayout },
+        meta: { layout: AdminLayout, title: "Dashboard" },
         component: DashboardView,
     },
     {
         path: "/admin/data-bidang-pekerjaan",
         name: "data-bidang-pekerjaan",
-        meta: { layout: AdminLayout },
+        meta: { layout: AdminLayout, title: "Data Bidang Pekerjaan" },
         component: PekerjaanView,
     },
     {
         path: "/admin/data-minat",
         name: "data-minat",
-        meta: { layout: AdminLayout },
+        meta: { layout: AdminLayout, title: "Data Minat" },
         component: MinatView,
     },
     {
         path: "/admin/data-bakat",
         name: "data-bakat",
-        meta: { layout: AdminLayout },
-        component: BakatView,
-    },
-    {
-        path: "/admin/data-bakat",
-        name: "data-bakat",
-        meta: { layout: AdminLayout },
+        meta: { layout: AdminLayout, title: "Data Bakat" },
         component: BakatView,
     },
     {
         path: "/admin/data-rules",
         name: "data-rules",
-        meta: { layout: AdminLayout },
+        meta: { layout: AdminLayout, title: "Data Rules" },
         component: RulesView,
     },
     {
         path: "/admin/login",
         name: "login",
+        meta: { title: "Login Admin" },
         component: LoginAdminView,
     },
     // end admin

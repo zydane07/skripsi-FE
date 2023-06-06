@@ -7,7 +7,7 @@
                     <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
                         <card-stats
                             statSubtitle="Jumlah Pengguna"
-                            statTitle="350,897"
+                            statTitle="5"
                             statIconName="fas fa-users"
                             statIconColor="bg-red-500"
                         />

@@ -12,15 +12,22 @@
         <td class="tbody-style">
             <div class="flex justify-start gap-4">
                 <button
+                    @click="detailWork(work.code)"
+                    class="text-white bg-fuchsia-500 p-2 rounded-md hover:bg-teal-600"
+                >
+                    <i class="fa-solid fa-circle-info"></i>
+                    Detail
+                </button>
+                <button
                     @click="editWork(work.code)"
-                    class="text-white bg-teal-400 px-2 py-2 rounded-md hover:bg-teal-600"
+                    class="text-white bg-teal-400 p-2 rounded-md hover:bg-teal-600"
                 >
                     <i class="fa-solid fa-pen"></i>
                     Edit
                 </button>
                 <button
                     @click="deleteWork(work.code)"
-                    class="text-white bg-red-400 px-2 py-2 rounded-md hover:bg-red-600"
+                    class="text-white bg-red-400 p-2 rounded-md hover:bg-red-600"
                 >
                     <i class="fa-solid fa-trash"></i>
                     Hapus
@@ -43,6 +50,10 @@ export default {
         },
     },
     methods: {
+        detailWork(code) {
+            console.log(code);
+            this.$emit("detail-work", code);
+        },
         editWork(code) {
             console.log(code);
             this.$emit("edit-work", code);
