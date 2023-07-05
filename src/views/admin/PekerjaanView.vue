@@ -391,19 +391,11 @@ export default {
             console.log(kompentensiBidang);
             // Make the API request to add the job field
             axios
-                .post(
-                    `${process.env.VUE_APP_BASE_URL}/works`,
-                    {
-                        kodeBidang: "P19",
-                        namaBidang: "makan sepeda",
-                        // kompentensiBidang: "ayayya",
-                    },
-                    {
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                    }
-                )
+                .post(`${process.env.VUE_APP_BASE_URL}/works`, {
+                    code: kodeBidang,
+                    name: namaBidang,
+                    // kompentensiBidang: "ayayya",
+                })
                 .then((response) => {
                     // Display success message
                     this.successMessage = "Job field added successfully";
@@ -413,7 +405,7 @@ export default {
                         this.successMessage = "";
                     }, 2000);
 
-                    console.log(response.data);
+                    console.log(response);
 
                     // ... any other logic or updates you need after a successful request ...
                 })
