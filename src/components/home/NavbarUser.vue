@@ -186,7 +186,7 @@ export default {
             links: [
                 {
                     text: "Homepage",
-                    route: "/",
+                    route: "/dashboard",
                 },
                 { text: "Informasi Sistem", route: "/informasi-sistem" },
                 {

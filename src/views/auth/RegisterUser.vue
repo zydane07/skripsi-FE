@@ -97,8 +97,8 @@
                         class="leading-tight shadow text-sm rounded border text-gray-700 h-14 w-full px-3 bg-white hover:border-gray-400 focus:outline-none focus:shadow-outline"
                     >
                         <option disabled value="">Pilih Jenis Kelamin</option>
-                        <option value="LK">Laki-Laki</option>
-                        <option value="PR">Perempuan</option>
+                        <option value="Pria">Laki-Laki</option>
+                        <option value="Wanita">Perempuan</option>
                     </select>
                     <span v-if="!gender" class="error-sign text-red-500"
                         >Jenis Kelamin tidak boleh kosong</span
@@ -113,10 +113,10 @@
                         class="leading-tight shadow text-sm rounded border text-gray-700 h-14 w-full px-3 bg-white hover:border-gray-400 focus:outline-none focus:shadow-outline"
                     >
                         <option disabled value="">Pilih Pekerjaanmu</option>
-                        <option value="pelajar">Pelajar</option>
-                        <option value="mahasiswa">Mahasiswa</option>
-                        <option value="jobseekers">Jobseekers</option>
-                        <option value="lainnya">Lainnya</option>
+                        <option value="Pelajar">Pelajar</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Jobseekers">Jobseekers</option>
+                        <option value="Lainnya">Lainnya</option>
                     </select>
                     <span v-if="!job" class="error-sign text-red-500"
                         >Pekerjaan tidak boleh kosong</span
@@ -144,6 +144,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     name: "register-user",
     data() {
@@ -193,10 +195,27 @@ export default {
                 alert("Please enter a valid name");
                 return;
             }
-            alert("Registrasi berhasil");
+            const userData = {
+                email: this.email,
+                name: this.name,
+                password: this.password,
+                gender: this.gender,
+                job: this.job,
+            };
 
-            // Navigate to the login page
-            this.$router.push({ name: "login-user" });
+            // Make an HTTP POST request to create a new user
+            axios
+                .post(`${process.env.VUE_APP_BASE_URL}/users`, userData)
+                .then(() => {
+                    // Handle the successful response
+                    alert("Registrasi berhasil");
+                    this.$router.push({ name: "login-user" });
+                })
+                .catch((error) => {
+                    // Handle the error
+                    alert("Failed to create a new user");
+                    console.error(error);
+                });
         },
         isEmailValid(email) {
             // Email validation regex pattern

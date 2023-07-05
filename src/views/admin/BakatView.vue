@@ -88,7 +88,6 @@ export default {
                 .get(`${process.env.VUE_APP_BASE_URL}/talents`)
                 .then((res) => {
                     this.talents.push(...res.data);
-                    console.log(res.data);
                 })
                 .catch((err) => console.error(err));
         },

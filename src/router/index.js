@@ -17,7 +17,7 @@ import LoginAdminView from "@/views/admin/LoginAdminView.vue";
 const routes = [
     // user
     {
-        path: "/",
+        path: "/dashboard",
         name: "home-user",
         meta: { layout: UserLayout, title: "Landing Page" },
         component: HomeView,
@@ -42,7 +42,7 @@ const routes = [
     },
 
     {
-        path: "/login",
+        path: "/",
         name: "login-user",
         meta: { layout: LoginLayout, title: "Login User" },
         component: LoginUser,
@@ -57,7 +57,7 @@ const routes = [
 
     // admin
     {
-        path: "/admin/",
+        path: "/admin/dashboard",
         name: "dashboard-admin",
         meta: { layout: AdminLayout, title: "Dashboard" },
         component: DashboardView,
@@ -87,7 +87,7 @@ const routes = [
         component: RulesView,
     },
     {
-        path: "/admin/login",
+        path: "/admin/",
         name: "login",
         meta: { title: "Login Admin" },
         component: LoginAdminView,

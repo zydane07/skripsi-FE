@@ -119,7 +119,7 @@ export default {
             menus: [
                 {
                     text: "Dashboard",
-                    route: "/admin/",
+                    route: "/admin/dashboard",
                     icon: "fa-solid fa-house",
                 },
                 {
@@ -144,7 +144,7 @@ export default {
                 },
                 {
                     text: "Logout",
-                    route: "/admin/login",
+                    route: "/admin/",
                     icon: "fa-solid fa-right-from-bracket",
                 },
             ],

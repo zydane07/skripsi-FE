@@ -85,6 +85,15 @@
 </template>
 
 <script>
+import axios from "axios";
+
+axios.interceptors.request.use((config) => {
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+        config.headers["Authorization"] = `Bearer ${access_token}`;
+    }
+    return config;
+});
 export default {
     name: "login-user",
     data() {
@@ -104,7 +113,7 @@ export default {
             this.passwords = !this.passwords; // Toggle 'passwords' value
         },
 
-        login() {
+        async login() {
             if (!this.email || !this.password) {
                 alert("Semua Field Harus diisi");
                 return;
@@ -120,8 +129,26 @@ export default {
                 return;
             }
 
-            alert("Login berhasil");
-            this.$router.push({ name: "home-user" });
+            try {
+                const response = await axios.post(
+                    `${process.env.VUE_APP_BASE_URL}/auth/login`,
+                    {
+                        email: this.email,
+                        password: this.password,
+                    }
+                );
+
+                const { access_token } = response.data; // Assuming the response contains an 'access_token' field
+                alert("Login berhasil");
+                localStorage.setItem("access_token", access_token);
+
+                this.$router.push({ name: "home-user" });
+            } catch (error) {
+                alert(
+                    "Login failed. Please check your credentials and try again."
+                );
+                console.error(error);
+            }
         },
 
         isEmailValid(email) {

@@ -347,7 +347,6 @@ export default {
                 .get(`${process.env.VUE_APP_BASE_URL}/works`)
                 .then((res) => {
                     this.works.push(...res.data);
-                    console.log(res.data);
                 })
                 .catch((err) => console.error(err));
         },
@@ -386,17 +385,14 @@ export default {
             const kompentensiBidang =
                 document.getElementById("kompentensi-bidang").value;
 
-            console.log(kodeBidang);
-            console.log(namaBidang);
-            console.log(kompentensiBidang);
             // Make the API request to add the job field
             axios
                 .post(`${process.env.VUE_APP_BASE_URL}/works`, {
                     code: kodeBidang,
                     name: namaBidang,
-                    // kompentensiBidang: "ayayya",
+                    competence: kompentensiBidang,
                 })
-                .then((response) => {
+                .then(() => {
                     // Display success message
                     this.successMessage = "Job field added successfully";
 
@@ -404,8 +400,6 @@ export default {
                     setTimeout(() => {
                         this.successMessage = "";
                     }, 2000);
-
-                    console.log(response);
 
                     // ... any other logic or updates you need after a successful request ...
                 })

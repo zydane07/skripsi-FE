@@ -110,8 +110,15 @@
 </template>
 
 <script>
+import axios from "axios";
 import registerBg2 from "@/assets/img/register_bg_2.png";
-
+axios.interceptors.request.use((config) => {
+    const access_token = localStorage.getItem("access_token");
+    if (access_token) {
+        config.headers["Authorization"] = `Bearer ${access_token}`;
+    }
+    return config;
+});
 export default {
     name: "login-admin",
     data() {
@@ -133,7 +140,7 @@ export default {
             this.text = !this.text; // Toggle 'text' value
             this.passwords = !this.passwords; // Toggle 'passwords' value
         },
-        login() {
+        async login() {
             if (!this.email || !this.password) {
                 alert("Semua Field Harus diisi");
                 return;
@@ -148,9 +155,40 @@ export default {
                 alert("Password Salah");
                 return;
             }
+            try {
+                const response = await axios.post(
+                    `${process.env.VUE_APP_BASE_URL}/auth/login`,
+                    {
+                        email: this.email,
+                        password: this.password,
+                    }
+                );
 
-            alert("Login berhasil");
-            this.$router.push({ name: "dashboard-admin" });
+                const { access_token } = response.data; // Assuming the response contains an 'access_token' field
+
+                localStorage.setItem("access_token", access_token);
+                // Check if user is an admin
+                const userResponse = await axios.get(
+                    `${process.env.VUE_APP_BASE_URL}/users`
+                );
+                const users = userResponse.data;
+                const currentUser = users.find(
+                    (user) => user.email === this.email
+                );
+                if (currentUser.isAdmin) {
+                    alert("Login berhasil");
+                    this.$router.push({ name: "dashboard-admin" });
+                } else {
+                    alert(
+                        "You do not have admin privileges. Please contact an administrator."
+                    );
+                }
+            } catch (error) {
+                alert(
+                    "Login failed. Please check your credentials and try again."
+                );
+                console.error(error);
+            }
         },
 
         isEmailValid(email) {

@@ -34,7 +34,6 @@
                                 :for="talentInterest.code"
                                 class="ml-2 text-sm font-medium text-gray-900 lg:text-base cursor-pointer"
                             >
-                                {{ talentInterest.code }}
                                 {{ talentInterest.name }}</label
                             >
                         </div>
@@ -212,7 +211,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import axios from "axios";
 
 export default {
@@ -224,7 +222,22 @@ export default {
             talent: [],
             interest: [],
             talentInterests: [],
-            // rules4: [],
+            rules1: [],
+            rules2: [],
+            rules3: [],
+            rules4: [],
+            rules5: [],
+            rules6: [],
+            rules7: [],
+            rules8: [],
+            rules9: [],
+            rules10: [],
+            rules11: [],
+            rules12: [],
+            rules13: [],
+            rules14: [],
+            rules15: [],
+            rules16: [],
             showModal: false,
             clickCount: 0,
             buttonClicked: false,
@@ -241,24 +254,6 @@ export default {
         },
     },
     computed: {
-        ...mapState([
-            "rules1",
-            "rules2",
-            "rules3",
-            "rules4",
-            "rules5",
-            "rules6",
-            "rules7",
-            "rules8",
-            "rules9",
-            "rules10",
-            "rules11",
-            "rules12",
-            "rules13",
-            "rules14",
-            "rules15",
-            "rules16",
-        ]),
         interests() {
             return this.checkedTalentInterest
                 .filter((item) => item.startsWith("M"))
@@ -374,7 +369,7 @@ export default {
             ];
 
             matchCounts.sort((a, b) => b.count - a.count);
-            console.log(matchCounts.sort((a, b) => b.count - a.count));
+            // console.log(matchCounts.sort((a, b) => b.count - a.count));
 
             const maxMatchCount = Math.max(
                 ...matchCounts.map((match) => match.count)
@@ -390,7 +385,7 @@ export default {
                 .slice(0, 3)
                 .map((item) => item.code);
 
-            console.log("mostSuitableWorkIds: ", mostSuitableWorkIds);
+            // console.log("mostSuitableWorkIds: ", mostSuitableWorkIds);
             //Find two corresponding work object
 
             const mostSuitableWork = mostSuitableWorkIds.map((workId) => {
@@ -571,24 +566,182 @@ export default {
                 })
                 .catch((err) => console.error(err));
         },
-        // axiosGetRules4() {
-        //     axios
-        //         .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R04`)
-        //         .then((res) => {
-        //             res.data.forEach((rule) => {
-        //                 // Access the properties of each rule object
-        //                 // const code = rule.code;
-        //                 // const workCode = rule.workCode;
-        //                 const talentInterestCode = rule.talentInterestCode;
-
-        //                 // Do something with the rule properties
-
-        //                 this.rules4.push(...talentInterestCode);
-        //                 console.log(talentInterestCode);
-        //             });
-        //         })
-        //         .catch((err) => console.error(err));
-        // },
+        axiosGetRules1() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R01`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules1.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules2() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R02`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules2.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules3() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R03`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules3.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules4() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R04`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules4.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules5() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R05`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules5.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules6() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R06`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules6.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules7() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R07`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules7.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules8() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R08`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules8.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules9() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R09`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules9.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules10() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R10`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules10.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules11() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R11`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules11.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules12() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R12`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules12.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules13() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R13`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules13.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules14() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R14`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules14.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules15() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R15`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules15.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetRules16() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R16`)
+                .then((res) => {
+                    res.data.forEach((rule) => {
+                        const talentInterestCode = rule.talentInterestCode;
+                        this.rules16.push(talentInterestCode);
+                    });
+                })
+                .catch((err) => console.error(err));
+        },
 
         getTalentInterestName(code) {
             // Find the interest object based on the interest code
@@ -629,7 +782,22 @@ export default {
         this.axiosGetInterests();
         this.axiosGetTalentInterests();
         this.axiosGetTalents();
-        // this.axiosGetRules4(); // Call the method when the component is mounted or as needed
+        this.axiosGetRules1();
+        this.axiosGetRules2();
+        this.axiosGetRules3();
+        this.axiosGetRules4();
+        this.axiosGetRules5();
+        this.axiosGetRules6();
+        this.axiosGetRules7();
+        this.axiosGetRules8();
+        this.axiosGetRules9();
+        this.axiosGetRules10();
+        this.axiosGetRules11();
+        this.axiosGetRules12();
+        this.axiosGetRules13();
+        this.axiosGetRules14();
+        this.axiosGetRules15();
+        this.axiosGetRules16();
     },
 };
 </script>
