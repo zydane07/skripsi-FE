@@ -53,6 +53,12 @@
                             : "Lihat Hasil Bidang Pekerjaan"
                     }}
                 </button>
+                <!-- <button
+                    @click="axiosGetRules4"
+                    class="ml-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold btn-transition px-6 py-4 rounded-lg"
+                >
+                    GET TALENT INTEREST
+                </button> -->
             </div>
         </div>
 
@@ -178,18 +184,12 @@
             <!-- daftar minat -->
             <h1 class="text-header">Daftar Minat</h1>
             <div class="md:grid grid-cols-2 gap-6 lg:gap-10">
-                <div
-                    v-for="(talentInterest, index) in talentInterests.slice(
-                        0,
-                        12
-                    )"
-                    :key="talentInterest.code"
-                >
+                <div v-for="(interest, index) in interest" :key="index">
                     <h1 class="mb-1 font-bold lg:text-lg">
-                        {{ index + 1 }}. {{ talentInterest.name }}
+                        {{ index + 1 }}. {{ interest.name }}
                     </h1>
                     <p class="ml-4 text-justify mb-4 lg:text-lg">
-                        {{ talentInterest.description }}
+                        {{ interest.description }}
                     </p>
                 </div>
             </div>
@@ -198,18 +198,12 @@
             <!-- daftar bakat -->
             <h1 class="text-header">Daftar Bakat</h1>
             <div class="md:grid grid-cols-2 gap-6 lg:gap-10">
-                <div
-                    v-for="(talentInterest, index) in talentInterests.slice(
-                        12,
-                        20
-                    )"
-                    :key="talentInterest.code"
-                >
+                <div v-for="(talent, index) in talent" :key="index">
                     <h1 class="mb-1 font-bold lg:text-lg">
-                        {{ index + 1 }}. {{ talentInterest.name }}
+                        {{ index + 1 }}. {{ talent.name }}
                     </h1>
                     <p class="ml-4 text-justify mb-4 lg:text-lg">
-                        {{ talentInterest.description }}
+                        {{ talent.description }}
                     </p>
                 </div>
             </div>
@@ -219,12 +213,18 @@
 
 <script>
 import { mapState } from "vuex";
+import axios from "axios";
 
 export default {
     name: "list-talent-interest",
     data() {
         return {
             checkedTalentInterest: [],
+            works: [],
+            talent: [],
+            interest: [],
+            talentInterests: [],
+            // rules4: [],
             showModal: false,
             clickCount: 0,
             buttonClicked: false,
@@ -242,8 +242,6 @@ export default {
     },
     computed: {
         ...mapState([
-            "talentInterests",
-            "works",
             "rules1",
             "rules2",
             "rules3",
@@ -382,6 +380,10 @@ export default {
                 ...matchCounts.map((match) => match.count)
             );
 
+            if (maxMatchCount === 5) {
+                return []; // Return an empty array if max count is 5
+            }
+
             // const mostSuitableWorkId = matchCounts[0].code;
             // Get 3  suitable work ID
             const mostSuitableWorkIds = matchCounts
@@ -390,13 +392,10 @@ export default {
 
             console.log("mostSuitableWorkIds: ", mostSuitableWorkIds);
             //Find two corresponding work object
-            const mostSuitableWork = this.works.filter((work) =>
-                mostSuitableWorkIds.includes(work.code)
-            );
 
-            if (maxMatchCount === 5) {
-                return []; // Return an empty array if max count is 5
-            }
+            const mostSuitableWork = mostSuitableWorkIds.map((workId) => {
+                return this.works.find((work) => work.code === workId);
+            });
 
             return mostSuitableWork;
         },
@@ -539,6 +538,58 @@ export default {
         // },
     },
     methods: {
+        axiosGetWorks() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/works`)
+                .then((res) => {
+                    this.works.push(...res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+
+        axiosGetTalents() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/talents`)
+                .then((res) => {
+                    this.talent.push(...res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetTalentInterests() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/talent-interest`)
+                .then((res) => {
+                    this.talentInterests.push(...res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+        axiosGetInterests() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/interests`)
+                .then((res) => {
+                    this.interest.push(...res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+        // axiosGetRules4() {
+        //     axios
+        //         .get(`${process.env.VUE_APP_BASE_URL}/rules?code=R04`)
+        //         .then((res) => {
+        //             res.data.forEach((rule) => {
+        //                 // Access the properties of each rule object
+        //                 // const code = rule.code;
+        //                 // const workCode = rule.workCode;
+        //                 const talentInterestCode = rule.talentInterestCode;
+
+        //                 // Do something with the rule properties
+
+        //                 this.rules4.push(...talentInterestCode);
+        //                 console.log(talentInterestCode);
+        //             });
+        //         })
+        //         .catch((err) => console.error(err));
+        // },
+
         getTalentInterestName(code) {
             // Find the interest object based on the interest code
             const interestObj = this.talentInterests.find(
@@ -572,6 +623,13 @@ export default {
                 }
             }
         },
+    },
+    mounted() {
+        this.axiosGetWorks();
+        this.axiosGetInterests();
+        this.axiosGetTalentInterests();
+        this.axiosGetTalents();
+        // this.axiosGetRules4(); // Call the method when the component is mounted or as needed
     },
 };
 </script>

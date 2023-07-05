@@ -45,9 +45,7 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(
-                                    talentInterest, index
-                                ) in talentInterests.slice(12, 20)"
+                                v-for="(talent, index) in talents"
                                 :key="index"
                                 :class="{
                                     'bg-blue-200': index % 2 === 0,
@@ -56,16 +54,13 @@
                             >
                                 <th class="tbody-style">{{ index + 1 }}</th>
                                 <td class="tbody-style">
-                                    {{ talentInterest.code }}
+                                    {{ talent.code }}
                                 </td>
                                 <td class="tbody-style">
-                                    {{ talentInterest.name }}
+                                    {{ talent.name }}
                                 </td>
                                 <td class="tbody-style text-justify">
-                                    {{ talentInterest.description }}
-                                </td>
-                                <td class="tbody-style">
-                                    {{ talentInterest.example }}
+                                    {{ talent.description }}
                                 </td>
                             </tr>
                         </tbody>
@@ -78,12 +73,28 @@
 
 <script>
 // @ is an alias to /src
-import { mapState } from "vuex";
+import axios from "axios";
 
 export default {
     name: "data-bakat",
-    computed: {
-        ...mapState(["talentInterests"]),
+    data() {
+        return {
+            talents: [],
+        };
+    },
+    methods: {
+        axiosGetTalents() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/talents`)
+                .then((res) => {
+                    this.talents.push(...res.data);
+                    console.log(res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+    },
+    mounted() {
+        this.axiosGetTalents(); // Call the method when the component is mounted or as needed
     },
 };
 </script>

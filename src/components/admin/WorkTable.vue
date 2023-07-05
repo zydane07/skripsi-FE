@@ -51,11 +51,11 @@ export default {
     },
     methods: {
         detailWork(code) {
-            console.log(code);
+            // console.log(code);
             this.$emit("detail-work", code);
         },
         editWork(code) {
-            console.log(code);
+            // console.log(code);
             this.$emit("edit-work", code);
         },
         deleteWork(code) {

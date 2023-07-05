@@ -51,9 +51,7 @@
                         </thead>
                         <tbody>
                             <tr
-                                v-for="(
-                                    talentInterest, index
-                                ) in talentInterests.slice(0, 12)"
+                                v-for="(interest, index) in interests"
                                 :key="index"
                                 :class="{
                                     'bg-blue-200': index % 2 === 0,
@@ -62,18 +60,18 @@
                             >
                                 <th class="tbody-style">{{ index + 1 }}</th>
                                 <td class="tbody-style">
-                                    {{ talentInterest.code }}
+                                    {{ interest.code }}
                                 </td>
                                 <td class="tbody-style">
-                                    {{ talentInterest.name }}
+                                    {{ interest.name }}
                                 </td>
                                 <td class="tbody-style text-justify">
-                                    {{ talentInterest.description }}
+                                    {{ interest.description }}
                                 </td>
                                 <td class="tbody-style">
                                     {{
-                                        Array.isArray(talentInterest.example)
-                                            ? talentInterest.example.join(", ")
+                                        Array.isArray(interest.example)
+                                            ? interest.example.join(", ")
                                             : ""
                                     }}
                                 </td>
@@ -88,13 +86,28 @@
 
 <script>
 // @ is an alias to /src
-import { mapState } from "vuex";
+import axios from "axios";
 
 export default {
     name: "data-minat",
-    computed: {
-        ...mapState(["talentInterests"]),
+    data() {
+        return {
+            interests: [],
+        };
     },
-    methods: {},
+
+    methods: {
+        axiosGetInterests() {
+            axios
+                .get(`${process.env.VUE_APP_BASE_URL}/interests`)
+                .then((res) => {
+                    this.interests.push(...res.data);
+                })
+                .catch((err) => console.error(err));
+        },
+    },
+    mounted() {
+        this.axiosGetInterests(); // Call the method when the component is mounted or as needed
+    },
 };
 </script>
