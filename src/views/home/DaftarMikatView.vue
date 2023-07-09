@@ -7,7 +7,11 @@
                 Konsultasi akan dilakukan dengan kamu memilih minat dan bakat
                 yang kamu rasa cocok dengan dirimu. Jika kamu ragu tentang minat
                 dan bakat yang kamu miliki, kamu dapat melihat penjelasan dari
-                masing-masing minat dan bakat terlebih dahulu
+                masing-masing minat dan bakat terlebih dahulu.
+            </p>
+            <p class="text-center text-sm">
+                <span class="font-bold">Note:</span> M merepresentasikan Minat &
+                B merepresentasikan Bakat
             </p>
             <div class="">
                 <!-- pilihan minat -->
@@ -34,6 +38,7 @@
                                 :for="talentInterest.code"
                                 class="ml-2 text-sm font-medium text-gray-900 lg:text-base cursor-pointer"
                             >
+                                {{ talentInterest.code }}
                                 {{ talentInterest.name }}</label
                             >
                         </div>
@@ -125,7 +130,7 @@
                 </div>
             </div> -->
 
-            <!-- hasil diagnosa 3 bidang -->
+            <!-- hasil diagnosa bidang -->
             <div class="box lg:w-9/12 lg:mx-auto py-10">
                 <div
                     class="result-container"
@@ -369,11 +374,12 @@ export default {
             ];
 
             matchCounts.sort((a, b) => b.count - a.count);
-            // console.log(matchCounts.sort((a, b) => b.count - a.count));
+            console.log(matchCounts.sort((a, b) => b.count - a.count));
 
-            const maxMatchCount = Math.max(
-                ...matchCounts.map((match) => match.count)
-            );
+            // const maxMatchCount = Math.max(
+            //     ...matchCounts.map((match) => match.count)
+            // );
+            const maxMatchCount = matchCounts[0].count;
 
             if (maxMatchCount === 5) {
                 return []; // Return an empty array if max count is 5
@@ -381,16 +387,22 @@ export default {
 
             // const mostSuitableWorkId = matchCounts[0].code;
             // Get 3  suitable work ID
-            const mostSuitableWorkIds = matchCounts
-                .slice(0, 3)
-                .map((item) => item.code);
+            // const mostSuitableWorkIds = matchCounts
+            //     .slice(0, 3)
+            //     .map((item) => item.code);
 
             // console.log("mostSuitableWorkIds: ", mostSuitableWorkIds);
             //Find two corresponding work object
 
-            const mostSuitableWork = mostSuitableWorkIds.map((workId) => {
-                return this.works.find((work) => work.code === workId);
-            });
+            // const mostSuitableWork = mostSuitableWorkIds.map((workId) => {
+            //     return this.works.find((work) => work.code === workId);
+            // });
+
+            const mostSuitableWork = matchCounts
+                .filter((item) => item.count === maxMatchCount)
+                .map((item) =>
+                    this.works.find((work) => work.code === item.code)
+                );
 
             return mostSuitableWork;
         },
