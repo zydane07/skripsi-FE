@@ -381,7 +381,7 @@ export default {
             // );
             const maxMatchCount = matchCounts[0].count;
 
-            if (maxMatchCount === 5) {
+            if (maxMatchCount < 5) {
                 return []; // Return an empty array if max count is 5
             }
 
