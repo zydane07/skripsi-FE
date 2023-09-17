@@ -374,7 +374,7 @@ export default {
             ];
 
             matchCounts.sort((a, b) => b.count - a.count);
-            // console.log(matchCounts.sort((a, b) => b.count - a.count));
+            console.log(matchCounts.sort((a, b) => b.count - a.count));
 
             // const maxMatchCount = Math.max(
             //     ...matchCounts.map((match) => match.count)
@@ -403,7 +403,7 @@ export default {
                 .map((item) =>
                     this.works.find((work) => work.code === item.code)
                 );
-
+            // console.log("mostSuitableWork: ", mostSuitableWork);
             return mostSuitableWork;
         },
         // menampilkan 1 bidang kerja
